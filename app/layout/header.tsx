@@ -1,11 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const Menu: React.FC = () => {
+		return(<>
+			<Link href='/convert' className='text-gray-700 hover:text-blue-600 hover:underline'>
+				Convert
+			</Link>
+			<Link href='/compress' className='text-gray-700 hover:text-blue-600 hover:underline'>
+				Compress
+			</Link>
+			<Link href='/pricing' className='text-gray-700 hover:text-blue-600 hover:underline'>
+				Pricing
+			</Link>
+			<Link href='/help' className='text-gray-700 hover:text-blue-600 hover:underline'>
+				Help
+			</Link>
+		</>)
+  };
 
   return (
 		<header className='bg-white shadow-sm fixed top-0 left-0 right-0 z-50 font-sans'>
@@ -20,21 +37,7 @@ export default function Header() {
 
 				{/* Desktop Navigation */}
 				<nav className='hidden md:flex space-x-8'>
-					<Link href='/convert' className='text-gray-700 hover:text-blue-600 hover:underline'>
-						Convert
-					</Link>
-					<Link href='/compress' className='text-gray-700 hover:text-blue-600 hover:underline'>
-						Tools
-					</Link>
-					<Link href='/tools' className='text-gray-700 hover:text-blue-600 hover:underline'>
-						Tools
-					</Link>
-					<Link href='/pricing' className='text-gray-700 hover:text-blue-600 hover:underline'>
-						Pricing
-					</Link>
-					<Link href='/api' className='text-gray-700 hover:text-blue-600 hover:underline'>
-						API
-					</Link>
+					<Menu></Menu>
 				</nav>
 
 				{/* Right Side: Language, Login, Go Premium */}
@@ -61,16 +64,7 @@ export default function Header() {
 			{isMenuOpen && (
 				<div className='md:hidden bg-white border-t'>
 					<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col space-y-4'>
-						<Link href='/tools' className='text-gray-700 hover:text-blue-600'>
-							Tools
-						</Link>
-						<Link href='/pricing' className='text-gray-700 hover:text-blue-600'>
-							Pricing
-						</Link>
-						<Link href='/api' className='text-gray-700 hover:text-blue-600'>
-							API
-						</Link>
-						<button className='text-gray-700 hover:text-blue-600 text-left'>EN</button>
+						<Menu></Menu>
 						<Link href='/login' className='text-gray-700 hover:text-blue-600'>
 							Log In
 						</Link>
