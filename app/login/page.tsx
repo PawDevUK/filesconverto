@@ -114,7 +114,7 @@ export default function LoginPage() {
       </div>
       <p className="mt-4 text-center text-sm text-gray-600">
         Don&apos;t have an account? 
-        <a href="#" className="text-blue-600 hover:underline font-bold ml-[10px]">
+        <a href="#" className="text-blue-600 hover:underline font-bold ml-[5px]">
           Get access →
         </a>
       </p>
