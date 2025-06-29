@@ -68,7 +68,7 @@ export default function Header() {
 						<Link href='/login' className='text-gray-700 hover:text-blue-600'>
 							Log In
 						</Link>
-						<Link href='/premium' className='bg-blue-600 text-white rounded px-4 py-2 text-center hover:bg-blue-700'>
+						<Link href='/premium' className='[background:var(--color-primary)] text-white rounded px-4 py-2 text-center hover:bg-blue-700'>
 							Go Premium
 						</Link>
 					</div>
