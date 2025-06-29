@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload } from 'lucide-react'; // Ensure you have lucide-react installed
+import { store } from '@/app/store/formats';
 
 const Hero: React.FC = () => {
 	// Function to handle file drop
@@ -8,6 +9,19 @@ const Hero: React.FC = () => {
 		console.log('Dropped files:', acceptedFiles);
 		// Handle file processing here
 	};
+
+	const FileFormat: React.FC<{ supportedFormats: string[] }> = ({ supportedFormats }) => (
+		<section id='features' className='py-16 px-6 max-w-5xl mx-auto text-center'>
+				<h3 className='text-2xl font-semibold mb-6'>Supported Formats</h3>
+				<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm text-gray-700'>
+					{supportedFormats.map((format) => (
+						<div key={format} className='bg-gray-100 p-4 rounded-lg shadow-sm hover:bg-gray-200 transition'>
+							<span className='font-medium'>{format}</span>
+						</div>
+					))}
+				</div>
+		</section>
+	);
 
 	const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
@@ -30,20 +44,7 @@ const Hero: React.FC = () => {
 					</div>
 				</div>
 			</section>
-			<section id='features' className='py-16 px-6 max-w-5xl mx-auto text-center'>
-				<h3 className='text-2xl font-semibold mb-6'>Supported Formats</h3>
-				<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm text-gray-700'>
-					<div>PDF</div>
-					<div>JPG</div>
-					<div>MP4</div>
-					<div>MP3</div>
-					<div>PNG</div>
-					<div>DOCX</div>
-					<div>GIF</div>
-					<div>AVI</div>
-				</div>
-			</section>
-
+			<FileFormat supportedFormats={store.supportedFormats} />
 			<section id='how-it-works' className='py-16 px-6 bg-white text-center'>
 				<h3 className='text-2xl font-semibold mb-6'>How It Works</h3>
 				<ol className='space-y-4 max-w-xl mx-auto text-left list-decimal list-inside'>
