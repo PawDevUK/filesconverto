@@ -135,12 +135,6 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-      <p className="mt-4 text-center text-sm text-gray-600">
-        Not a member?{" "}
-        <a href="#" className="text-blue-600 hover:underline">
-          Start a 14 day free trial
-        </a>
-      </p>
     </div>
   );
 }
