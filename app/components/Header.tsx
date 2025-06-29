@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { store } from "../store/formats";
+
 type HeaderProps = {
   companyName?: string;
 };
@@ -35,7 +37,7 @@ const Header:React.FC<HeaderProps>= ({}) =>{
 				<div className='flex-shrink-0 flex flex-row items-center logo'>
 					<Link href='/' className='flex items-center space-x-2'>
 						<Image src='/favicon.ico' alt='Logo' width={30} height={30} />
-						<span className='text-2xl font-bold text-gray-900'>FilesConverto</span>
+						<span className='text-2xl font-bold text-gray-900'>{store.companyName}</span>
 					</Link>
 				</div>
 

@@ -1,9 +1,11 @@
 
 type Store = {
+  companyName: string;
   supportedFormats: Array<string>,
 };
 
 export const store: Store = {
+  companyName: 'FilesConverto',
   supportedFormats:[
     'PDF',
     'JPG',
