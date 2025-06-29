@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import "./login.css"; // Assuming you have a CSS file for styles
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center loginWrapper">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
