@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Header() {
+type HeaderProps = {
+  companyName?: string;
+};
+
+const Header:React.FC<HeaderProps>= ({}) =>{
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const Menu: React.FC = () => {
@@ -77,3 +81,5 @@ export default function Header() {
 		</header>
   );
 }
+
+export default Header;
