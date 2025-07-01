@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
 					</div>
 				</div>
 			</section>
-			<FileFormat supportedFormats={store.supportedFormats} />
+			<FileFormat supportedFormats={store.documentFormats} />
 			<section id='how-it-works' className='py-16 px-6 bg-white text-center'>
 				<h3 className='text-2xl font-semibold mb-6'>How It Works</h3>
 				<ol className='space-y-4 max-w-xl mx-auto text-left list-decimal list-inside'>
