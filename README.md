@@ -22,4 +22,9 @@ This is the repository for FilesConverto.com, which holds the entire codebase. L
 ##### Back-End
 
 - [ ] Create the initial logic for uploading and converting files.
+  - Set up a directory for file uploads in `public/uploads` to store uploaded and converted files.
+  - Create an API route in Next.js (`app/api/upload/route.ts`) to handle file uploads using `formidable` for parsing and saving files.
+  - Add logic for file conversion using `sharp` for image formats (e.g., PNG to JPEG) or CloudConvert for broader format support (e.g., PDF to Word).
+  - Integrate with a front-end form styled with Tailwind CSS, adapting the provided login form to include a file input and submission to the API route.
+
 - [ ] Create logic which will be storing files for free user for 24H.
