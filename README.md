@@ -6,10 +6,28 @@ This is the repository for FilesConverto.com, which holds the entire codebase. L
 
 ### Tasks to Do
 
-- [ ] Create the initial logic for uploading and converting files.
 - [ ] First file type to implement conversion is PDF.
+- [ ] Tidy up the project and learn how to structure the directory.
+
+##### Front-End
+
+- [ ] Create a progress bar using Tailwind CSS.
+- [ ] Create 'How to use' section with 'Step 1,2,3'
+- [ ] Create 'File Types' section with cards which each of them will represent file type.
+- [ ] Create 'About' section which will explain what service provides.
+- [ ] Update Footer.
+- [ ] Change main title text from 'Convert Files Effortlessly' to 'Files Converter'
+- [ ] Remove temporally from the header none used links.
+- [ ] Create logic which recognize the free user.
+
+##### Back-End
+
 - [ ] Add API directory for pdf.
 - [ ] Install packages to convert pdf.
-- [ ] 
-- [ ] Tidy up the project and learn how to structure the directory.
-- [ ] Create a progress bar using Tailwind CSS.
+- [ ] Create the initial logic for uploading and converting files.
+  - Set up a directory for file uploads in `public/uploads` to store uploaded and converted files.
+  - Create an API route in Next.js (`app/api/upload/route.ts`) to handle file uploads using `formidable` for parsing and saving files.
+  - Add logic for file conversion using `sharp` for image formats (e.g., PNG to JPEG) or CloudConvert for broader format support (e.g., PDF to Word).
+  - Integrate with a front-end form styled with Tailwind CSS, adapting the provided login form to include a file input and submission to the API route.
+
+- [ ] Create logic which will be storing files for free user for 24H.
