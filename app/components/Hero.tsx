@@ -1,11 +1,20 @@
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload } from 'lucide-react'; // Ensure you have lucide-react installed
-import { store } from '@/app/store/formats';
+import useFileUpload from "@/app/hooks/useFileUpload";
+import { store } from '@/app/store/formats'; // Adjust the import path as necessary
 
 const Hero: React.FC = () => {
+	// Get the upload function from the custom hook
+	const { isUploading, error, uploadFile } = useFileUpload();
+
 	// Function to handle file drop
 	const onDrop = (acceptedFiles: File[]) => {
+		if (acceptedFiles.length === 0) {
+			console.error('No files accepted');
+			return;
+		}
+		uploadFile(acceptedFiles[0]);
 		console.log('Dropped files:', acceptedFiles);
 		// Handle file processing here
 	};
