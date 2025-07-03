@@ -22,12 +22,18 @@ This is the repository for FilesConverto.com, which holds the entire codebase. L
 
 ##### Back-End
 
+- [x] Choose reliable NPM packages for converting PDF documents.
+  I HAVE DECIDED TO USE PYTHON PACKAGES AS NPM PACKAGES ARE EMPTY OR UNRELIABLE !!!!
+- [ ] Learn how react hook is define and how to use it in Next js Component. How to handle props.
 - [ ] Add API directory for pdf.
-- [ ] Install packages to convert pdf.
-- [ ] Create the initial logic for uploading and converting files.
+- [ ] Create the initial logic for uploading and sending files to Python cloud function.
   - Set up a directory for file uploads in `public/uploads` to store uploaded and converted files.
   - Create an API route in Next.js (`app/api/upload/route.ts`) to handle file uploads using `formidable` for parsing and saving files.
-  - Add logic for file conversion using `sharp` for image formats (e.g., PNG to JPEG) or CloudConvert for broader format support (e.g., PDF to Word).
   - Integrate with a front-end form styled with Tailwind CSS, adapting the provided login form to include a file input and submission to the API route.
-
+- [ ] Create Python cloud function which will be converting files. Learn how it works and what it does.
 - [ ] Create logic which will be storing files for free user for 24H.
+
+Time Line:  
+03/07/25  
+  I have learn today how NEXT handles communication between front-end, back end via axios and routes.  
+  I have today went trough few npm packages and learn that is better to use python packages. I have started to implement pip package and created new directory with python cloud function to handle pdf conversion. At the moment I'm struggling to understand how to declare type script function and pass props to components as it slightly different than in React. I need learn to do it so a file can be uploaded and sent to python cloud function. 
