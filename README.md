@@ -7,5 +7,9 @@ This is the repository for FilesConverto.com, which holds the entire codebase. L
 ### Tasks to Do
 
 - [ ] Create the initial logic for uploading and converting files.
+- [ ] First file type to implement conversion is PDF.
+- [ ] Add API directory for pdf.
+- [ ] Install packages to convert pdf.
+- [ ] 
 - [ ] Tidy up the project and learn how to structure the directory.
 - [ ] Create a progress bar using Tailwind CSS.
