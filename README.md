@@ -28,3 +28,10 @@ This is the repository for FilesConverto.com, which holds the entire codebase. L
   - Integrate with a front-end form styled with Tailwind CSS, adapting the provided login form to include a file input and submission to the API route.
 
 - [ ] Create logic which will be storing files for free user for 24H.
+
+
+
+
+#### Dropzone Widget
+Idea for the better file upload while working with the files is to create some kind of widget on the bottom right side or bottom left side corner e.g chat bot window but smaller so file from the
+browser can be easily without switching taps moved from drop box to dropzone of the widget.
