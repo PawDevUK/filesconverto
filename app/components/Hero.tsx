@@ -13,7 +13,13 @@ const Hero: React.FC = () => {
 			console.error('No files accepted');
 			return;
 		}
-		uploadFile(acceptedFiles[0]);
+		uploadFile(acceptedFiles[0])
+			.then((data)=>{
+				console.log(data);
+			})
+			.catch((error) => {
+			console.error('Upload error:', error);
+		});
 	};
 
 	const FileFormat: React.FC<{ supportedFormats: Array<string> }> = ({ supportedFormats }) => (
