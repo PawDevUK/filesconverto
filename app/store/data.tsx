@@ -4,10 +4,20 @@ type Store = {
   supportedFormats: Array<string>,
   pdfToOtherFormats: Array<string>,
   documentFormats: Array<string>
+  routes: Array<{
+    route:string,
+    href:string
+  }>
 };
 
 export const store: Store = {
   companyName: 'FilesConverto',
+  routes: [
+    { route: 'Convert', href: '/convert' },
+    // { route: 'Compress', href: '/compress' },
+    { route: 'Pricing', href: '/pricing' },
+    { route: 'Help', href: '/help' }
+  ],
   supportedFormats:[
     'PDF',
     'JPG',
