@@ -6,7 +6,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
 
-	const { uploadFile } = useFileUpload();
+	const { uploadFile} = useFileUpload();
 	
 	const onDrop = (acceptedFiles: File[]) => {
 		if (acceptedFiles.length === 0) {
@@ -14,12 +14,6 @@ const Hero: React.FC = () => {
 			return;
 		}
 		uploadFile(acceptedFiles[0])
-			.then((data)=>{
-				console.log(data);
-			})
-			.catch((error) => {
-			console.error('Upload error:', error);
-		});
 	};
 
 	const FileFormat: React.FC<{ supportedFormats: Array<string> }> = ({ supportedFormats }) => (
