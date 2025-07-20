@@ -35,14 +35,22 @@ function useFileUpload() {
 					'Content-Type': 'multipart/form-data',
 				},
 			});
-
 			if (response.status !== 200) {
-				const responseData = await response.data;
-				const error = responseData.error;
+				const error = await response.data.error;
+				if (error.code === 'ECONNREFUSED' || error.message.includes('ERR_CONNECTION_REFUSED')) {
+					setState((prev) => ({
+						...prev,
+						isLoading: false,
+						error: 'Cannot connect to server. Is it running?',
+						response: null,
+					}));
+				}
+
 				setState((prev) => ({
 					...prev,
 					error: error,
 				}));
+
 				throw new Error(state.error || 'Upload failed.');
 			}
 
@@ -53,20 +61,19 @@ function useFileUpload() {
 				response: response.data,
 				error: null,
 			}));
-
-		} catch (error:unknown|object) {
+		} catch (error: unknown | object) {
 			// Handle error
-      if(axios.isAxiosError(error)){
-        const errorMessage = error.response?.data?.message || error.message || 'An unexpected error occurred';
-        setState((prev) => ({
-				...prev,
-				isLoading: false,
-				error: errorMessage,
-				response: null,
-			}));
-
-      }
+			if (axios.isAxiosError(error)){
+				const errorMessage = error.response?.data?.message || error.message || 'An unexpected error occurred';
+				setState((prev) => ({
+					...prev,
+					isLoading: false,
+					error: errorMessage,
+					response: null,
+				}));
+			}
 		}
+    return state;
 	}, []);
 	return { state, uploadFile };
 }
