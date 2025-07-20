@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 
-import { store } from '@/app/store/formats';
+import { store } from '@/app/store/data';
 const companyName = store.companyName || 'FilesConverto';
 export const metadata = {
 	title: 'Files Converter',
