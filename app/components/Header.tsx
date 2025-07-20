@@ -1,33 +1,32 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import getBaseUrl from '../hooks/baseURL';
 
-import { store } from "../store/formats";
+import { store } from "../store/data";
 
 type HeaderProps = {
 	companyName?: string;
 };
 
 const Header: React.FC<HeaderProps> = ({}) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+	const [baseUrl, setBaseUrl] = useState<string>('');
+
+	useEffect(() => {
+		setBaseUrl(getBaseUrl());
+	}, []);
 
 	const Menu: React.FC = () => {
 		return (
 			<>
-				<Link href='/convert' className='text-gray-700 hover:text-blue-600 hover:underline'>
-					Convert
-				</Link>
-				<Link href='/compress' className='text-gray-700 hover:text-blue-600 hover:underline'>
-					Compress
-				</Link>
-				<Link href='/pricing' className='text-gray-700 hover:text-blue-600 hover:underline'>
-					Pricing
-				</Link>
-				<Link href='/help' className='text-gray-700 hover:text-blue-600 hover:underline'>
-					Help
-				</Link>
+				{store.routes.map((route) => (
+					<Link key={route.href} href={`${baseUrl}/${route.href}`} className='text-gray-700 hover:text-blue-600 hover:underline'>
+						{route.route}
+					</Link>
+				))}
 			</>
 		);
 	};
