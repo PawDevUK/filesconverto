@@ -1,50 +1,74 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState, useCallback } from 'react';
+import axios from 'axios';
 
-const API_URL = "http://127.0.0.1:5000/convert"; // Adjust the API endpoint as necessary
+// API endpoint
+const API_URL = 'http://127.0.0.1:5000/convert';
 
-type fileUploadProps = {
-  target: {
-    files: FileList;
-  };
-  maxFileSize:number,
-  cloudFunctionURL:string
-}
-const useFileUpload: uploadFunc = (e) => {
-  const [isUploading, setIsUploading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  
-  useEffect(() => {
-    if(e){
-      console.log(e.target.files);
-    } else {
-      console.log("No event provided");
-    }
-  }, []);
-
-  const uploadFile = async (file: File) => {
-    setIsUploading(true);
-    setError(null);
-
-    const formData = new FormData();
-    formData.append("file", file);
-
-    try {
-      const response = await axios.post(API_URL, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      return response.data;
-    } catch (err) {
-      setError("Failed to upload file");
-      console.error(err);
-    } finally {
-      setIsUploading(false);
-    }
-  };
-
-  return { isUploading, error, uploadFile };
+type fileStateT = {
+	file: null | File;
+	isLoading: boolean;
+	error: string | null;
+	response: Blob | object | null;
 };
+
+function useFileUpload() {
+	// State for file, loading, error, and response
+	const [state, setState] = useState<fileStateT>({
+		file: null,
+		isLoading: false,
+		error: null,
+		response: null,
+	});
+
+	// Memoized function to handle file upload
+	const uploadFile = useCallback(async (file: File) => {
+		setState((prev) => ({ ...prev, isLoading: true, error: null, file }));
+
+		try {
+			// Create FormData for file upload
+			const formData = new FormData();
+			formData.append('file', file);
+
+			// Make API call
+			const response = await axios.post(API_URL, formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			});
+
+			if (response.status !== 200) {
+				const responseData = await response.data;
+				const error = responseData.error;
+				setState((prev) => ({
+					...prev,
+					error: error,
+				}));
+				throw new Error(state.error || 'Upload failed.');
+			}
+
+			// Update state with response
+			setState((prev) => ({
+				...prev,
+				isLoading: false,
+				response: response.data,
+				error: null,
+			}));
+
+		} catch (error:unknown|object) {
+			// Handle error
+      if(axios.isAxiosError(error)){
+        const errorMessage = error.response?.data?.message || error.message || 'An unexpected error occurred';
+        setState((prev) => ({
+				...prev,
+				isLoading: false,
+				error: errorMessage,
+				response: null,
+			}));
+
+      }
+		}
+	}, []);
+	return { state, uploadFile };
+}
 
 export default useFileUpload;
