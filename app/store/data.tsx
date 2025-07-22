@@ -15,7 +15,7 @@ export const store: Store = {
   routes: [
     { route: 'Convert', href: '/convert' },
     // { route: 'Compress', href: '/compress' },
-    { route: 'Pricing', href: '/pricing' },
+    { route: 'Pricing', href: '/PremiumPrices' },
     { route: 'Help', href: '/help' }
   ],
   supportedFormats:[

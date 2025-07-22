@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-import "./login.css";
+import MainPage from "../pages/main";
+
 import GH from "@/app/public/github-mark.svg"
 import GOOGLE from "@/app/public/google.svg";
 
@@ -10,7 +11,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center loginWrapper">
+    <MainPage>
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -118,6 +119,6 @@ export default function LoginPage() {
           Get access →
         </a>
       </p>
-    </div>
+    </MainPage>
   );
 }
