@@ -1,6 +1,7 @@
 "use client"
 import React, {useEffect} from 'react';
 import MainPage from '../pages/main';
+import PricingCard from '../components/ui/card';
 
 function PremiumPrices() {
   useEffect(()=>{
@@ -9,7 +10,9 @@ function PremiumPrices() {
   // const [state, setState] = useState()
   return (
    <MainPage>
-    {"Plans Prices"}
+    {<div>
+      <PricingCard></PricingCard>
+    </div>}
    </MainPage>
   )
 }
