@@ -18,10 +18,10 @@ type Store = {
 export const store: Store = {
   companyName: 'FilesConverto',
   routes: [
-    { route: 'Convert', href: '/convert' },
+    { route: 'Convert', href: '/Convert' },
     // { route: 'Compress', href: '/compress' },
-    { route: 'Pricing', href: '/PremiumPrices' },
-    { route: 'Help', href: '/help' }
+    // { route: 'Pricing', href: '/PremiumPrices' },
+    { route: 'Help', href: '/Help' }
   ],
   pricePlans:[{plan:'Standard',price:7.50,perks:[]}],
   supportedFormats:[
