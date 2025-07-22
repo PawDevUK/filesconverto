@@ -3,6 +3,11 @@ type Store = {
   companyName: string;
   supportedFormats: Array<string>,
   pdfToOtherFormats: Array<string>,
+  pricePlans:Array<{
+    plan:string,
+    price:number,
+    perks:Array<string>
+  }>
   documentFormats: Array<string>
   routes: Array<{
     route:string,
@@ -18,6 +23,7 @@ export const store: Store = {
     { route: 'Pricing', href: '/PremiumPrices' },
     { route: 'Help', href: '/help' }
   ],
+  pricePlans:[{plan:'Standard',price:7.50,perks:[]}],
   supportedFormats:[
     'PDF',
     'JPG',
