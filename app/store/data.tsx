@@ -3,6 +3,11 @@ type Store = {
   companyName: string;
   supportedFormats: Array<string>,
   pdfToOtherFormats: Array<string>,
+  pricePlans:Array<{
+    plan:string,
+    price:number,
+    perks:Array<string>
+  }>
   documentFormats: Array<string>
   routes: Array<{
     route:string,
@@ -13,11 +18,12 @@ type Store = {
 export const store: Store = {
   companyName: 'FilesConverto',
   routes: [
-    { route: 'Convert', href: '/convert' },
+    { route: 'Convert', href: '/Convert' },
     // { route: 'Compress', href: '/compress' },
-    { route: 'Pricing', href: '/pricing' },
-    { route: 'Help', href: '/help' }
+    // { route: 'Pricing', href: '/PremiumPrices' },
+    { route: 'Help', href: '/Help' }
   ],
+  pricePlans:[{plan:'Standard',price:7.50,perks:[]}],
   supportedFormats:[
     'PDF',
     'JPG',
