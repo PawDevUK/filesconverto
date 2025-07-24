@@ -2,11 +2,7 @@
 import React from 'react';
 import Hero from './components/Hero';
 
-type HomeProps = {
-	companyName: string;
-};
-
-const Home: React.FC<HomeProps> = () => {
+const Home: React.FC = () => {
 	return (
 		<div className='min-h-screen bg-gray-50 text-gray-800'>
 			<Hero></Hero>
