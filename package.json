@@ -33,5 +33,12 @@
     "typescript": "^5",
     "fs-extra": "^11.1.1",
     "path": "^0.12.7"
-  }
+  },"keywords": [
+    "pdf",
+    "docx",
+    "converter",
+    "document",
+    "office",
+    "word"
+  ]
 }
