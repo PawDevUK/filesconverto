@@ -1,4 +1,3 @@
-
 type Store = {
   companyName: string;
   supportedFormats: Array<string>,
@@ -8,11 +7,18 @@ type Store = {
     price:number,
     perks:Array<string>
   }>
-  documentFormats: Array<string>
+  documentFormatsDisplay: Array<string>
   routes: Array<{
     route:string,
     href:string
-  }>
+  }>,
+  documentFormats:Array<string>,
+  conversionOptions: {
+    formats: Array<string>,
+    qualities: Array<number>,
+    dpis: Array<number>,
+    scales: Array<number>
+  }
 };
 
 export const store: Store = {
@@ -34,7 +40,7 @@ export const store: Store = {
     'GIF',
     'AVI'
   ],
-  documentFormats:[
+  documentFormatsDisplay:[
     "PDF",
     "DOC",
     "DOCX",
@@ -81,6 +87,14 @@ export const store: Store = {
     "PDF to EMF",
     "PDF to SVG",
     "PDF to WMF"
-  ]
+  ],
+  documentFormats: ['PDF → PNG', 'PDF → JPEG', 'PDF → WebP', 'PDF → SVG'],
+  
+  conversionOptions: {
+    formats: ['png', 'jpeg', 'webp', 'svg'],
+    qualities: [70, 80, 90, 100],
+    dpis: [72, 150, 300],
+    scales: [0.5, 1.0, 1.5, 2.0]
+  }
 };
 
