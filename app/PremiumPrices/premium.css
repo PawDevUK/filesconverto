@@ -1,0 +1,16 @@
+/* Cards wrapper styling */
+.cards-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    margin: 3rem 0;
+}
+
+@media (max-width: 768px) {
+    .cards-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+}
