@@ -34,7 +34,8 @@ const PricingCard = (props: price_Plans) => {
 
 const CheckIcon = ({ active = false }: { active?: boolean }) => (
 	<svg
-		className={`h-4 w-4 shrink-0 ${active ? 'text-blue-700' : 'text-gray-400'}`}
+		className='h-4 w-4 shrink-0'
+		style={active ? { color: 'var(--color-primary)' } : { color: '#9ca3af' }} // #9ca3af is Tailwind's gray-400
 		aria-hidden='true'
 		xmlns='http://www.w3.org/2000/svg'
 		fill='currentColor'
