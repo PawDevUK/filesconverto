@@ -1,5 +1,7 @@
 import React from 'react';
 import { price_Plans } from '@/app/store/data';
+import Infinity_Icon from '@/public/infinity1.svg';
+import Image from 'next/image';
 
 const PricingCard = (props: price_Plans) => {
 	return (
@@ -18,7 +20,16 @@ const PricingCard = (props: price_Plans) => {
 				{props.perks.map((perk, key) => (
 					<li className='flex items-center' key={key}>
 						<CheckIcon active />
-						<span className='ml-3'>{perk}</span>
+						<span className='ml-3'>
+							{perk === "Unlimited concurrent conversions" ? (
+								<>
+									<Image src={Infinity_Icon} alt="infinity" className="inline w-6 h-8 mr-1" />
+									concurrent conversions.
+								</>
+							) : (
+								perk
+							)}
+						</span>
 					</li>
 				))}
 			</ul>
