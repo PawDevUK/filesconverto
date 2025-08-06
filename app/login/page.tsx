@@ -4,8 +4,8 @@ import Image from "next/image";
 
 import MainPage from "../pages/main";
 
-import GH from "@/app/public/github-mark.svg"
-import GOOGLE from "@/app/public/google.svg";
+import GH from "@/public/github-mark.svg"
+import GOOGLE from "@/public/google.svg";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
