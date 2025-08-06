@@ -1,5 +1,6 @@
 /* Cards wrapper styling */
 .cards-wrapper {
+    width:90vw;
     display: flex;
     gap: 2rem;
     justify-content: center;
