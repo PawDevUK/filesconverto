@@ -6,7 +6,7 @@
 
 @media (min-width: 900px) and (max-width: 1200px) {
   .cards-wrapper {
-    width: 900px; /* enforce narrower mid-range */
+    width: 800px; /* enforce narrower mid-range */
     margin-left: auto;
     margin-right: auto;
   }
