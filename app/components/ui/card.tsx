@@ -18,9 +18,9 @@ const PricingCard = (props: price_Plans) => {
 
 			<ul className='mb-6 space-y-4 text-gray-500'>
 				{props.perks.map((perk, key) => (
-					<li className='flex items-center' key={key}>
+					<li className='flex items-center mb-2' key={key}>
 						<CheckIcon active />
-						<span className='ml-3'>
+						<span className='ml-3 leading-loose'>
 							{perk === "Unlimited concurrent conversions" ? (
 								<>
 									<Image src={Infinity_Icon} alt="infinity" className="inline w-6 h-8 mr-1" />
