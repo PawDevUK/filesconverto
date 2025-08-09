@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 		return (
 			<>
 				{store.routes.map((route) => (
-					<Link key={route.href} href={`${baseUrl}${route.href}`} className='text-gray-700 hover:text-blue-600 hover:underline'>
+					<Link key={route.href} href={`${baseUrl}${route.href}`} className='text-gray-700 hover:[color:var(--color-primary)]'>
 						{route.route}
 					</Link>
 				))}
