@@ -1,6 +1,6 @@
 import React from 'react';
 import { price_Plans } from '@/app/store/data';
-import Infinity_Icon from '@/public/infinity1.svg';
+import Infinity_Icon from '@/public/infinity.svg';
 import Image from 'next/image';
 
 const PricingCard = (props: price_Plans) => {
