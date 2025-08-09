@@ -34,8 +34,9 @@ export const store: Store = {
   companyName: 'FilesConverto',
   routes: [
     { route: 'Convert', href: '/Convert' },
-    // { route: 'Compress', href: '/compress' },
-    // { route: 'Pricing', href: '/PremiumPrices' },
+    { route: 'Compress', href: '/compress' },
+    { route: 'Tools', href: '/tools' },
+    { route: 'API', href: '/api' },
     { route: 'Help', href: '/Help' }
   ],
   supportedFormats:[
