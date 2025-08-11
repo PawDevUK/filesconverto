@@ -1,0 +1,14 @@
+import React from 'react';
+
+type H3Props = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+function H3({ children, className = '' }: H3Props) {
+  return (
+    <h3 className={`text-1xl md:text-2xl font-light mb-6 mt-10 ${className}`.trim()}>{children}</h3>
+  )
+}
+
+export default H3

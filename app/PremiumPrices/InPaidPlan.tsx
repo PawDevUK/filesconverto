@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import H3 from '@/app/typography/Headers'
 
 const InPaidPlan: React.FC = () => {
 	const [InPlan] = useState([
@@ -12,7 +13,7 @@ const InPaidPlan: React.FC = () => {
 
 	return (
 		<div className='text-center'>
-			<h3 className='text-lg font-semibold mb-4'>In All Paid Plans</h3>
+			<H3>In All Paid Plans</H3>
 			<ul className='flex flex-wrap justify-center items-center gap-4'>
 				{InPlan.map((perk,i)=>
                     (<li key={i}className='flex items-center space-x-2'>
