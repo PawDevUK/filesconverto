@@ -5,6 +5,7 @@ import PricingCard from '../components/ui/card';
 import InPaidPlan from '@/app/PremiumPrices/InPaidPlan';
 import FairPricing from '@/app/PremiumPrices/FairPricing';
 import SecuredPayments from '@/app/PremiumPrices/SecuredPayments';
+import UsedBy from './UsedBy'
 import{ price_Plans, pricePlans }from 'app/store/data'
 import './premium.css'
 
@@ -23,6 +24,7 @@ const PremiumPrices:React.FC<price_Plans>=() =>{
     </div>
     <InPaidPlan></InPaidPlan>
     <SecuredPayments></SecuredPayments>
+    <UsedBy></UsedBy>
    </MainPage>
   )
 }
