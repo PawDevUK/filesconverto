@@ -1,11 +1,12 @@
 import React from 'react'
 import Image from 'next/image';
-import stripe from './assets/stripe.svg'
-import paypal from './assets/paypal.svg'
-import lock from './assets/lock.svg'
+import stripe from './assets/securedPayments/stripe.svg'
+import paypal from './assets/securedPayments/paypal.svg'
+import lock from './assets/securedPayments/lock.svg'
+import './premium.css'
 
 const SecuredPayments: React.FC = () => (
-  <div className="flex flex-col items-center justify-center py-8 mt-3">
+  <div className="secured-Pay flex flex-col items-center justify-center py-8 mt-3">
     <h3 className="flex items-center text-lg font-semibold mb-4">
       <Image src={lock} alt='lock'></Image>
       <span>Payments are secured with</span>
