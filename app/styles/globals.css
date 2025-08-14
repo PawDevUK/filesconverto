@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Victor Mono";
-  src: url("/fonts/VictorMono-Regular.woff2") format("woff2");
+  src: url("/fonts/Victor_Mono/static/VictorMono-Regular.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
