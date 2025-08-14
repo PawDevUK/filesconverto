@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import getBaseUrl from '../hooks/baseURL';
 
+import {GreenButton} from '@/app/components/ui/Button'
+
 import { store } from "../store/data";
 
 type HeaderProps = {
@@ -47,9 +49,9 @@ const Header: React.FC<HeaderProps> = ({}) => {
 					<Link href='/Login' className='text-gray-700 hover:text-blue-600 border border-gray-300 rounded px-4 py-2 hover:border-blue-600'>
 						Log In
 					</Link>
-					<Link href='/PremiumPrices' className='[background:var(--color-primary)] text-white rounded px-4 py-2 hover:[background:var(--color-primary-hover)]'>
+					<GreenButton href='/PremiumPrices'>
 						Go Premium
-					</Link>
+					</GreenButton>
 				</div>
 				<div className='md:hidden'>
 					<button onClick={() => setIsMenuOpen(!isMenuOpen)} className='text-gray-700 focus:outline-none'>
@@ -66,9 +68,9 @@ const Header: React.FC<HeaderProps> = ({}) => {
 						<Link href='/Login' className='text-gray-700 hover:text-blue-600'>
 							Log In
 						</Link>
-						<Link href='/PremiumPrices' className='[background:var(--color-primary)] text-white rounded px-4 py-2 text-center hover:bg-blue-700'>
+						<GreenButton href='/PremiumPrices'>
 							Go Premium
-						</Link>
+						</GreenButton>
 					</div>
 				</div>
 			)}
