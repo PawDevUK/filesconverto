@@ -7,7 +7,7 @@ import H3 from '@/app/typography/Headers'
 import './premium.css'
 
 const SecuredPayments: React.FC = () => (
-  <div className="secured-Pay flex flex-col items-center justify-center py-8 mt-3">
+  <div className="secured-Pay flex flex-col items-center justify-center pt-5 mt-3">
     <H3 className="flex items-center">
       <Image src={lock} alt='lock'></Image>
       <span className='text-1xl md:text-2xl font-light ml-3'>Payments are secured with</span>
