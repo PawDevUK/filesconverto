@@ -110,10 +110,10 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[] }> = ({ uploads }) => 
 										)}
 
 										{upload.status === 'converting' && <div className='px-3 py-1.5 text-sm text-gray-500'>Processing...</div>}
-										<button className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-400 bg-white hover:bg-gray-100 rounded-md transition-colors'>
+										{<button className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-400 bg-white hover:bg-gray-100 rounded-md transition-colors'>
 											<Trash2 className='w-4 h-4 mr-1' />
 											Delete
-										</button>
+										</button>}
 									</div>
 								</div>
 							</div>
