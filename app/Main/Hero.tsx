@@ -10,7 +10,7 @@ import ServiceInfoCards from './ServiceInfoCards';
 import UploadsList from './Uploads';
 
 import {UploadsInfoTypes} from '@/app/types/upload.types'
-import {mockUploads} from '@/app/data/mockUploads'
+import {mockUploads} from '@/app/store/mockUploads'
 
 
 type Metadata = {
