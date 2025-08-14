@@ -1,5 +1,3 @@
-// Upload-related type definitions
-// export type UploadStatus = 'pending' | 'converting' | 'completed' | 'failed';
 
 export interface UploadMetadata {
   pageCount?: number;
@@ -23,19 +21,6 @@ export interface UploadState {
   error?: string;
   response?: ConversionResponse;
 }
-
-// export interface Upload {
-//   id: string;
-//   fileName: string;
-//   originalFormat: string;
-//   targetFormat: string;
-//   status: UploadStatus;
-//   progress?: number;
-//   downloadUrl?: string;
-//   uploadTime: string;
-//   createdAt?: Date;
-//   updatedAt?: Date;
-// }
 
 export interface UploadOptions {
   format: string;
