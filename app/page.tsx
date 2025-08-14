@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Hero from './Main/Hero';
+import MainPage from './pages/main';
 
 type HomeProps = {
 	companyName: string;
@@ -8,9 +9,9 @@ type HomeProps = {
 
 const Home: React.FC<HomeProps> = () => {
 	return (
-		<div className='min-h-screen bg-gray-50 text-gray-800'>
+		<MainPage>
 			<Hero></Hero>
-		</div>
+		</MainPage>
 	);
 };
 
