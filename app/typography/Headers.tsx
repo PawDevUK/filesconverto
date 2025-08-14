@@ -7,7 +7,7 @@ type H3Props = {
 
 function H3({ children, className = '' }: H3Props) {
   return (
-    <h3 className={`text-1xl md:text-2xl font-light mb-6 mt-10 ${className}`.trim()}>{children}</h3>
+    <h3 className={`text-1xl md:text-2xl font-light mb-4 mt-6 ${className}`.trim()}>{children}</h3>
   )
 }
 
