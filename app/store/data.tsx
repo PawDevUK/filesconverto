@@ -2,11 +2,6 @@ type Store = {
   companyName: string;
   supportedFormats: Array<string>,
   pdfToOtherFormats: Array<string>,
-  pricePlans:Array<{
-    plan:string,
-    price:number,
-    perks:Array<string>
-  }>
   documentFormatsDisplay: Array<string>
   routes: Array<{
     route:string,
@@ -21,15 +16,29 @@ type Store = {
   }
 };
 
+export type price_Plans = {
+    plan:string,
+    price:number,
+    perks:Array<string>,
+  };
+  
+ export const pricePlans:price_Plans[] = [
+    {plan:'Standard',price:7.50,perks:["1,500 conversion min/month","500 MB maximum file size", "CPU - encoding", "25 Concurrent conversions", "High priority","Cancel any time"]},
+    {plan:'Premium',price:12.99,perks:["2,000 conversion min/month","1 GB maximum file size", "CPU - encoding", "50 Concurrent conversions", "Higher priority","Cancel any time"]},
+    {plan:'Pro',price:31.00,perks:["4,000 conversion min/month","Unlimited file size","GPU/CPU - encoding", "Unlimited concurrent conversions", "Highest priority","Cancel any time"]},
+    {plan:'Office',price:35.00,perks:["8,000 conversion min/month","Unlimited file size","GPU/CPU - encoding", "Unlimited concurrent conversions", "Highest priority","Cancel any time"]}
+  ];
+
+
 export const store: Store = {
   companyName: 'FilesConverto',
   routes: [
     { route: 'Convert', href: '/Convert' },
-    // { route: 'Compress', href: '/compress' },
-    // { route: 'Pricing', href: '/PremiumPrices' },
+    { route: 'Compress', href: '/compress' },
+    { route: 'Tools', href: '/tools' },
+    { route: 'API', href: '/api' },
     { route: 'Help', href: '/Help' }
   ],
-  pricePlans:[{plan:'Standard',price:7.50,perks:[]}],
   supportedFormats:[
     'PDF',
     'JPG',

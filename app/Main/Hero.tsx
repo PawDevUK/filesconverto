@@ -1,7 +1,7 @@
 import useFileUpload from "@/app/hooks/useFileUpload";
 import { useDropzone } from 'react-dropzone';
 import { store } from '@/app/store/data';
-import { Upload, FileText, CheckCircle, AlertCircle, Download, Settings } from 'lucide-react';
+import { Upload, FileText, CheckCircle, AlertCircle, Download} from 'lucide-react';
 import React, { useState } from 'react';
 
 type Metadata = {
@@ -34,10 +34,9 @@ const Hero: React.FC = () => {
         dpi: number;
     };
     const { uploadFile, state } = useFileUpload() as { uploadFile: (file: File, options?: UploadOptions) => Promise<void>, state: State };
-    const [selectedFormat, setSelectedFormat] = useState<string>('docx');
-    const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
-    const [quality, setQuality] = useState<number>(90);
-    const [dpi, setDpi] = useState<number>(150);
+    const [selectedFormat] = useState<string>('docx');
+    const [quality] = useState<number>(90);
+    const [dpi] = useState<number>(150);
     
     const onDrop = async (acceptedFiles: File[]) => {
         if (acceptedFiles.length === 0) {
@@ -89,73 +88,6 @@ const Hero: React.FC = () => {
             <section className='text-center py-20 bg-gradient-to-b from-white to-gray-100'>
                 <h2 className='text-4xl font-bold mb-4'>Convert PDF Files</h2>
                 <p className='text-lg text-gray-600 mb-6'>Fast, free, and secure PDF conversion to multiple formats.</p>
-                
-                {/* Format Selection */}
-                <div className='max-w-xl mx-auto mb-6'>
-                    <label className='block text-sm font-medium text-gray-700 mb-2'>
-                        Choose Output Format:
-                    </label>
-                    <select
-                        value={selectedFormat}
-                        onChange={(e) => setSelectedFormat(e.target.value)}
-                        className='w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
-                        disabled={state.isLoading}
-                    >
-                        {formatOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                                {option.icon} {option.label}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-
-                {/* Advanced Options */}
-                <div className='max-w-xl mx-auto mb-6'>
-                    <button
-                        onClick={() => setShowAdvanced(!showAdvanced)}
-                        className='flex items-center mx-auto text-sm text-gray-600 hover:text-gray-800'
-                        disabled={state.isLoading}
-                    >
-                        <Settings className='h-4 w-4 mr-1' />
-                        Advanced Options
-                    </button>
-                    
-                    {showAdvanced && selectedFormat !== 'docx' && (
-                        <div className='mt-4 p-4 bg-gray-50 rounded-lg'>
-                            <div className='grid grid-cols-2 gap-4'>
-                                <div>
-                                    <label className='block text-xs font-medium text-gray-700 mb-1'>
-                                        Quality: {quality}%
-                                    </label>
-                                    <input
-                                        type='range'
-                                        min='50'
-                                        max='100'
-                                        value={quality}
-                                        onChange={(e) => setQuality(parseInt(e.target.value))}
-                                        className='w-full'
-                                        disabled={state.isLoading}
-                                    />
-                                </div>
-                                <div>
-                                    <label className='block text-xs font-medium text-gray-700 mb-1'>
-                                        DPI: {dpi}
-                                    </label>
-                                    <select
-                                        value={dpi}
-                                        onChange={(e) => setDpi(parseInt(e.target.value))}
-                                        className='w-full p-1 border border-gray-300 rounded text-sm'
-                                        disabled={state.isLoading}
-                                    >
-                                        <option value={72}>72 (Web)</option>
-                                        <option value={150}>150 (Standard)</option>
-                                        <option value={300}>300 (High Quality)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
                 
                 {/* Dropzone */}
                 <div
