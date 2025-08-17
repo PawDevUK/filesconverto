@@ -1,5 +1,3 @@
-// Basic smoke test for the Hero component (no JSX so this file can remain .ts)
-// test/Hero.test.tsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
