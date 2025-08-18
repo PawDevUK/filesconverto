@@ -6,6 +6,7 @@ import { UploadsInfoTypes } from '@/app/types/upload.types';
 export const mockUploads: UploadsInfoTypes[] = [
   {
     id: 'upload_1692123456789_abc123',
+    file: new File([], 'document.pdf'),
     fileName: 'document.pdf',
     originalFormat: 'PDF',
     targetFormat: 'DOCX',
@@ -17,6 +18,7 @@ export const mockUploads: UploadsInfoTypes[] = [
   },
   {
     id: 'upload_1692123456790_def456',
+    file: new File([], 'presentation.pptx'),
     fileName: 'presentation.pptx',
     originalFormat: 'PPTX',
     targetFormat: 'PDF',
@@ -28,6 +30,7 @@ export const mockUploads: UploadsInfoTypes[] = [
   },
   {
     id: 'upload_1692123456791_ghi789',
+    file: new File([], 'image.png'),
     fileName: 'image.png',
     originalFormat: 'PNG',
     targetFormat: 'JPG',
@@ -38,6 +41,7 @@ export const mockUploads: UploadsInfoTypes[] = [
   },
   {
     id: 'upload_1692123456792jkl012',
+    file: new File([], 'report.docx'),
     fileName: 'report.docx',
     originalFormat: 'DOCX',
     targetFormat: 'PDF',
@@ -48,6 +52,7 @@ export const mockUploads: UploadsInfoTypes[] = [
   },
   {
     id: 'upload_1692123456792_jkl01',
+    file: new File([], 'report.docx'),
     fileName: 'report.docx',
     originalFormat: 'DOCX',
     targetFormat: 'PDF',
@@ -58,6 +63,7 @@ export const mockUploads: UploadsInfoTypes[] = [
   },
   {
     id: 'upload_169123456792_jkl012',
+    file: new File([], 'report.docx'),
     fileName: 'report.docx',
     originalFormat: 'DOCX',
     targetFormat: 'PDF',
@@ -68,6 +74,7 @@ export const mockUploads: UploadsInfoTypes[] = [
   },
   {
     id: 'upload_169212345692_jkl012',
+    file: new File([], 'report.docx'),
     fileName: 'report.docx',
     originalFormat: 'DOCX',
     targetFormat: 'PDF',
@@ -88,6 +95,7 @@ export const simulateUpload = (
 ): UploadsInfoTypes => {
   return {
     id: `upload_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+    file: new File([], fileName),
     fileName,
     originalFormat: originalFormat.toUpperCase(),
     targetFormat: targetFormat.toUpperCase(),
