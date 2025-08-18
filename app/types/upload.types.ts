@@ -40,10 +40,11 @@ export interface UploadsListProps {
 
 export interface UploadsInfoTypes {
   id: string;
+  file: File;
   fileName: string;
   originalFormat: string;
   targetFormat: string;
-  status: 'pending' | 'converting' | 'completed' | 'failed';
+  status: 'pending' | 'converting' | 'completed' | 'failed'| 'uploaded';
   progress?: number;
   downloadUrl?: string;
   uploadTime: string;
