@@ -3,8 +3,9 @@
 import React from 'react';
 import { Download, RotateCcw, Clock, CheckCircle, AlertCircle, FileUp, Trash2 } from 'lucide-react';
 import { UploadsInfoTypes } from '@/app/types/upload.types';
+import { removeFile } from '../utils/IndexedDB';
 
-const UploadsList: React.FC<{ uploads: UploadsInfoTypes[] }> = ({ uploads }) => {
+const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onDelete?: () => void }> = ({ uploads, onDelete }) => {
 	const getStatusIcon = (status: UploadsInfoTypes['status']) => {
 		switch (status) {
 			case 'converting':
@@ -36,6 +37,11 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[] }> = ({ uploads }) => 
 	const handleRetry = (uploadId: string) => {
 		// Implement retry logic
 		console.log('Retrying upload:', uploadId);
+	};
+
+	const handleDeleteClick = async (fileId: string) => {
+		await removeFile(fileId);
+		if (onDelete) await onDelete();
 	};
 
 	return (
@@ -110,10 +116,14 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[] }> = ({ uploads }) => 
 										)}
 
 										{upload.status === 'converting' && <div className='px-3 py-1.5 text-sm text-gray-500'>Processing...</div>}
-										{<button className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-400 bg-white hover:bg-gray-100 rounded-md transition-colors'>
-											<Trash2 className='w-4 h-4 mr-1' />
-											Delete
-										</button>}
+										{
+											<button
+												onClick={() => handleDeleteClick(upload.id)}
+												className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-400 bg-white hover:bg-gray-100 rounded-md transition-colors'>
+												<Trash2 className='w-4 h-4 mr-1' />
+												Delete
+											</button>
+										}
 									</div>
 								</div>
 							</div>
