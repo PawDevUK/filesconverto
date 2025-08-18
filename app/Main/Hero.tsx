@@ -1,16 +1,36 @@
-import React, { useState } from 'react';
-import Dropzone from './Dropzone';
+import React, { useState, useEffect } from 'react';
+import DropzoneComponent from './Dropzone';
 import ServiceInfoCards from './ServiceInfoCards';
 import FileFormat from './FileFormats';
 import HowItWorks from './HowItWorks';
 import UploadsList from './Uploads';
 
 import { UploadsInfoTypes } from '@/app/types/upload.types';
-import { mockUploads } from '@/app/store/mockUploads';
+// import { mockUploads } from '@/app/store/mockUploads';
 import { store } from '@/app/store/data';
+import { getIndexedDB} from '../utils/IndexedDB';
+
+type DropzoneProps = { onUpload?: () => Promise<void> };
+const Dropzone = DropzoneComponent as React.ComponentType<DropzoneProps>;
 
 const Hero: React.FC = () => {
-	const [uploads] = useState<UploadsInfoTypes[]>(mockUploads);
+	const [uploads, setUploads] = useState<UploadsInfoTypes[]>([]);
+
+	useEffect(() => {
+		(async () => {
+			try {
+				const result = await getIndexedDB();
+				setUploads(result);
+			} catch {
+				setUploads([]);
+			}
+		})();
+	}, []);
+
+	const handleDelete = async () => {
+		const result = await getIndexedDB();
+		setUploads(result);
+	};
 
 	return (
 		<>
@@ -18,9 +38,14 @@ const Hero: React.FC = () => {
 				<h2 className='text-4xl font-bold mb-4'>Convert Files</h2>
 				<p className='text-lg text-gray-600 mb-6'>Fast, free, and secure files conversion to multiple formats.</p>
 
-				<Dropzone></Dropzone>
+				<Dropzone
+					onUpload={async () => {
+						const result = await getIndexedDB();
+						setUploads(result);
+					}}
+				/>
 
-				<UploadsList uploads={uploads}></UploadsList>
+				<UploadsList uploads={uploads} onDelete={handleDelete} />
 			</section>
 			<section id='how-it-works' className='py-8 px-6 bg-white text-center'>
 				<HowItWorks></HowItWorks>
