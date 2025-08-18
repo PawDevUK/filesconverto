@@ -16,8 +16,10 @@
 		"@tailwindcss/postcss": "^4.1.11",
 		"axios": "^1.10.0",
 		"canvas": "^3.1.2",
+		"date-fns": "^4.1.0",
 		"docx": "^9.5.1",
 		"ffi-napi": "^4.0.3",
+		"idb-keyval": "^6.2.2",
 		"jszip": "^3.10.1",
 		"lucide-react": "^0.522.0",
 		"next": "15.3.4",
@@ -32,6 +34,7 @@
 		"ref-struct-napi": "^1.1.1",
 		"sharp": "^0.34.3",
 		"tailwindcss": "^4.1.11",
+		"uuid": "^11.1.0",
 		"xml2js": "^0.6.2"
 	},
 	"devDependencies": {
