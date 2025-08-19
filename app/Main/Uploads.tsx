@@ -4,6 +4,7 @@ import React from 'react';
 import { Download, RotateCcw, Clock, CheckCircle, AlertCircle, FileUp, Trash2 } from 'lucide-react';
 import { UploadsInfoTypes } from '@/app/types/upload.types';
 import { removeFile } from '../utils/IndexedDB';
+import DropDown from '../components/ui/DropDown';
 
 const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onDelete?: () => void }> = ({ uploads, onDelete }) => {
 	const getStatusIcon = (status: UploadsInfoTypes['status']) => {
@@ -44,6 +45,14 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onDelete?: () => void
 		if (onDelete) await onDelete();
 	};
 
+	const shortenName = (name: string) => {
+		const dotIndex = name.lastIndexOf('.');
+		if (dotIndex === -1) return name.slice(0, 15);
+		const base = `${name.slice(0, 15)}...`;
+		const ext = name.slice(dotIndex);
+		return base + ext;
+	};
+
 	return (
 		<div className='w-full max-w-4xl mx-auto py-6'>
 			<div className='bg-white rounded-xl shadow-lg border border-gray-200'>
@@ -67,10 +76,14 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onDelete?: () => void
 										{/* File Info */}
 										<div className='flex-1 min-w-0'>
 											<div className='flex items-center space-x-2 mb-1'>
-												<h3 className='text-sm font-medium text-gray-900 truncate'>{upload.fileName}</h3>
-												<span className='inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800'>
-													{upload.originalFormat} → {upload.targetFormat}
-												</span>
+												<h3 className='text-sm font-medium text-gray-900 truncate'>{shortenName(upload.fileName)}</h3>
+												{!upload.targetFormat ? (
+													<DropDown></DropDown>
+												) : (
+													<span className='inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800'>
+														{upload.originalFormat} → {upload.targetFormat}
+													</span>
+												)}
 											</div>
 
 											<div className='flex items-center space-x-4 text-sm text-gray-500'>
