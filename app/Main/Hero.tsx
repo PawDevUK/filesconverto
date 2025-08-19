@@ -8,7 +8,7 @@ import UploadsList from './Uploads';
 import { UploadsInfoTypes } from '@/app/types/upload.types';
 // import { mockUploads } from '@/app/store/mockUploads';
 import { store } from '@/app/store/data';
-import { getIndexedDB} from '../utils/IndexedDB';
+import { getIndexedDB } from '../utils/IndexedDB';
 
 type DropzoneProps = { onUpload?: () => Promise<void> };
 const Dropzone = DropzoneComponent as React.ComponentType<DropzoneProps>;
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
 					}}
 				/>
 
-				<UploadsList uploads={uploads} onDelete={handleDelete} />
+				{uploads.length === 0 ? '' : <UploadsList uploads={uploads} onDelete={handleDelete} />}
 			</section>
 			<section id='how-it-works' className='py-8 px-6 bg-white text-center'>
 				<HowItWorks></HowItWorks>
