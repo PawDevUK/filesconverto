@@ -17,7 +17,7 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 			id: uuidv4(),
 			file: acceptedFiles[0],
 			fileName: acceptedFiles[0].name,
-			originalFormat: '',
+			originalFormat: getFileExt(acceptedFiles[0].name),
 			targetFormat: '',
 			status: 'uploaded',
 			progress: 0,
@@ -29,7 +29,9 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 		await set(uploadedFile.id, uploadedFile);
 		if (onUpload) onUpload();
 	};
-
+	const getFileExt = (filename: string): string => {
+		return filename.split('.').pop()?.toUpperCase() || '';
+	};
 	const { getRootProps, getInputProps } = useDropzone({
 		onDrop,
 		accept: {
