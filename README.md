@@ -2,7 +2,7 @@
 
 ## About
 
-This is the repository for FilesConverto.com, which holds the entire codebase. Like every project, it is currently a small repository as it is in the beginning stages of development. I hope it will grow into a robust project with all the necessary features to allow users to convert most popular file types.
+This repository contains the complete codebase for FilesConverto.com. As the project is still in its early development stages, the repository remains relatively small. The goal is for it to evolve into a comprehensive platform with all the essential features needed to support the conversion of the most commonly used file types.
 
 ### Tasks to Do
 
