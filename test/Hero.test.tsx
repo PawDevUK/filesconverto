@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import Hero from '../app/Main/Hero';
 
 // Mock the file upload hook to avoid network/side-effects
 jest.mock('@/app/hooks/useFileUpload', () => ({
@@ -29,8 +30,6 @@ jest.mock('../app/Main/Uploads', () => {
   UploadsMock.displayName = 'UploadsMock';
   return { __esModule: true, default: UploadsMock };
 });
-
-import Hero from '../app/Main/Hero';
 
 describe('Hero component', () => {
   it('renders without crashing', () => {
