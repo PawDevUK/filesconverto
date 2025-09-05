@@ -12,14 +12,13 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 			console.error('No files accepted');
 			return;
 		}
-
 		const uploadedFile: UploadsInfoTypes = {
 			id: uuidv4(),
 			file: acceptedFiles[0],
 			fileName: acceptedFiles[0].name,
 			originalFormat: getFileExt(acceptedFiles[0].name),
 			targetFormat: '',
-			status: 'converting',
+			status: 'failed',
 			progress: 30,
 			downloadUrl: '',
 			uploadTime: format(new Date(), 'HH:mm:ss'),
