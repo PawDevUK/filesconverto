@@ -6,10 +6,10 @@ import InPaidPlan from '@/app/PremiumPrices/InPaidPlan';
 import FairPricing from '@/app/PremiumPrices/FairPricing';
 import SecuredPayments from '@/app/PremiumPrices/SecuredPayments';
 import UsedBy from './UsedBy'
-import{ price_Plans, pricePlans }from 'app/store/data'
+import { pricePlans } from 'app/store/data'
 import './premium.css'
 
-const PremiumPrices:React.FC<price_Plans>=() =>{
+const PremiumPrices: React.FC = () => {
   useEffect(()=>{
 
   },[])

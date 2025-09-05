@@ -3,11 +3,7 @@ import React from 'react';
 import Hero from './Main/Hero';
 import MainPage from './pages/main';
 
-type HomeProps = {
-	companyName: string;
-};
-
-const Home: React.FC<HomeProps> = () => {
+const Home: React.FC = () => {
 	return (
 		<MainPage>
 			<Hero></Hero>
