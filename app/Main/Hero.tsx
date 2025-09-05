@@ -1,12 +1,13 @@
+"use client"
+
 import React, { useState, useEffect } from 'react';
 import DropzoneComponent from './Dropzone';
 import ServiceInfoCards from './ServiceInfoCards';
 import FileFormat from './FileFormats';
 import HowItWorks from './HowItWorks';
-import UploadsList from './Uploads';
+import UploadsList from './UploadsList';
 
 import { UploadsInfoTypes } from '@/app/types/upload.types';
-// import { mockUploads } from '@/app/store/mockUploads';
 import { store } from '@/app/store/data';
 import { getIndexedDB } from '../utils/IndexedDB';
 
@@ -18,16 +19,12 @@ const Hero: React.FC = () => {
 
 	useEffect(() => {
 		(async () => {
-			try {
-				const result = await getIndexedDB();
-				setUploads(result);
-			} catch {
-				setUploads([]);
-			}
-		})();
+			const result = await getIndexedDB();
+			setUploads(result);
+		})()
 	}, []);
 
-	const handleDelete = async () => {
+	const handleUpdate = async () => {
 		const result = await getIndexedDB();
 		setUploads(result);
 	};
@@ -40,12 +37,10 @@ const Hero: React.FC = () => {
 
 				<Dropzone
 					onUpload={async () => {
-						const result = await getIndexedDB();
-						setUploads(result);
+						handleUpdate();
 					}}
 				/>
-
-				{uploads.length === 0 ? '' : <UploadsList uploads={uploads} onDelete={handleDelete} />}
+				{uploads.length === 0 ? '' : <UploadsList uploads={uploads} onUpdate={handleUpdate} />}
 			</section>
 			<section id='how-it-works' className='py-8 px-6 bg-white text-center'>
 				<HowItWorks></HowItWorks>
