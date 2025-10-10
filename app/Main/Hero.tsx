@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import DropzoneComponent from './Dropzone';
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
 		(async () => {
 			const result = await getIndexedDB();
 			setUploads(result);
-		})()
+		})();
 	}, []);
 
 	const handleUpdate = async () => {
