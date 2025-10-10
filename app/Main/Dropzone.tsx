@@ -12,11 +12,13 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 			console.error('No files accepted');
 			return;
 		}
+		const file = acceptedFiles[0];
 		const uploadedFile: UploadsInfoTypes = {
 			id: uuidv4(),
-			file: acceptedFiles[0],
-			fileName: acceptedFiles[0].name,
-			originalFormat: getFileExt(acceptedFiles[0].name),
+			file: file,
+			fileName: file.name,
+			fileSize: file.size,
+			originalFormat: getFileExt(file.name),
 			targetFormat: '',
 			status: 'failed',
 			progress: 30,
