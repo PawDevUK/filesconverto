@@ -52,13 +52,22 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate?: () => void
 		if (onUpdate) await onUpdate();
 	};
 
-	const shortenName = (name: string) => {
-		if (name) {
-			const dotIndex = name.lastIndexOf('.');
-			if (dotIndex === -1) return name.slice(0, 15);
-			const base = `${name.slice(0, 15)}...`;
+	const shortenName = (name: string): string => {
+		if (!name) throw new Error('File name is missing. All files must have a name.');
+
+		const nameLength = name.length;
+		const nameLengthTarget = 16;
+		const nameLengthTargetMAX = 20;
+		const dotIndex = name.lastIndexOf('.');
+
+		if (nameLength > nameLengthTargetMAX) {
+			const base = name.slice(0, nameLengthTarget);
 			const ext = name.slice(dotIndex);
-			return base + ext;
+			return `${base}..${ext}`;
+		}
+		return name;
+	};
+
 		}
 		return;
 	};
