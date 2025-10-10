@@ -20,7 +20,7 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 			fileSize: file.size,
 			originalFormat: getFileExt(file.name),
 			targetFormat: '',
-			status: 'failed',
+			status: 'uploaded',
 			progress: 30,
 			downloadUrl: '',
 			uploadTime: format(new Date(), 'HH:mm:ss'),
