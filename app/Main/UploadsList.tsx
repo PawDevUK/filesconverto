@@ -68,8 +68,13 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate?: () => void
 		return name;
 	};
 
+	const returnSize = (file: UploadsInfoTypes) => {
+		if (!file || typeof file.fileSize !== 'number' || isNaN(file.fileSize)) return '';
+		const sizeInKB = file.fileSize / 1024;
+		if (sizeInKB >= 1024) {
+			return `${(sizeInKB / 1024).toFixed(2)} MB`;
 		}
-		return;
+		return `${sizeInKB.toFixed(2)} KB`;
 	};
 
 	const handleConvertion = (id: string) => {
