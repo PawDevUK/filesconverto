@@ -147,19 +147,26 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 										<div className='flex-1 min-w-0'>
 											<div className='flex items-center space-x-2 mb-1'>
 												<h3 className='text-sm font-medium text-gray-900 truncate'>{shortenName(upload.fileName)}</h3>
-												{!upload.targetFormat ? (
-													<DropDown onSelectFormat={(newFormat) => handleTargetFormatChange(upload.id, newFormat)}></DropDown>
-												) : (
-													<span className='inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800'>
-														{upload.originalFormat} → {upload.targetFormat}
-													</span>
-												)}
 											</div>
 
-											<div className='flex items-center space-x-4 text-sm text-gray-500'>
+											<div className='px-0 flex items-center space-x-4 text-sm text-gray-500'>
 												<span>{getStatusText(upload.status)}</span>
+												<span>{returnSize(upload)}</span>
 												<span className='w-[97px] h-[25.49px]' onMouseEnter={() => handleFormatHover(upload.id)}>
-														<DropDown onLeave={handleFormatLeave} onSelectFormat={(newFormat) => handleFormatChange(upload.id, newFormat)} />
+													{!upload.targetFormat || hoveringFormatId === upload.id ? (
+														<DropDown
+															lableText='Format'
+															onLeave={handleFormatLeave}
+															onSelectFormat={(newFormat) => handleFormatChange(upload.id, newFormat)}
+														/>
+													) : (
+														<span
+															className='w-full h-full inline-flex items-center justify-center px-1 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 cursor-pointer hover:bg-blue-200 transition-colors'
+															title='Hover to change format'>
+															{upload.originalFormat} → {upload.targetFormat}
+														</span>
+													)}
+												</span>
 											</div>
 
 											{/* Progress Bar for Converting */}
