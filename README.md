@@ -12,12 +12,13 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 - [x] Tidy up the project and learn how to structure the directory.
 - [ ] Add multi files upload.
 - [ ] Add button to convert all uploaded.
+- [ ] Fix RWD as it is very bad on mobile devices.
 
 ##### Front-End
 
 - [ ] Create a progress bar using Tailwind CSS.
-- [ ] Create 'How to use' section with 'Step 1,2,3'
-- [ ] Create 'File Types' section with cards which each of them will represent file type.
+- [x] Create 'How it works' section with 'Step 1,2,3'
+- [x] Create 'File Types' section with cards which each of them will represent file type.
 - [ ] Create 'About' section which will explain what service provides.
 - [ ] Update Footer.
 - [ ] Change main title text from 'Convert Files Effortlessly' to 'Files Converter'
