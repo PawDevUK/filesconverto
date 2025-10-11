@@ -132,7 +132,12 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 						</div>
 					) : (
 						uploads.map((upload: UploadsInfoTypes) => (
-							<div key={upload.id} className='px-6 py-4 hover:bg-gray-50 transition-colors'>
+							<div
+								key={upload.id}
+								onMouseLeave={() => {
+									handleFormatLeave();
+								}}
+								className='px-6 py-4 hover:bg-gray-50 transition-colors'>
 								<div className='flex items-center justify-between'>
 									<div className='flex items-center space-x-4 flex-1'>
 										{/* Status Icon */}
