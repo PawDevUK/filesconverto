@@ -97,6 +97,27 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		setHoveringFormatId('');
 	};
 
+	const handleFormatChangeAll = async (newFormat: string) => {
+		try {
+			// Get all keys from IndexedDB
+			const keys = await import('idb-keyval').then((m) => m.keys());
+
+			// Update each upload with the new target format
+			for (const key of keys) {
+				const upload = await get(key);
+				if (upload && upload.id) {
+					upload.targetFormat = newFormat;
+					await set(key, upload);
+				}
+			}
+
+			// Trigger UI update
+			if (onUpdate) await onUpdate();
+		} catch (error) {
+			console.error('Error updating all formats:', error);
+		}
+	};
+
 	return (
 		<div className='w-full max-w-4xl mx-auto py-6'>
 			<div className='bg-white rounded-xl shadow-lg border border-gray-200'>
@@ -201,6 +222,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 							<span>
 								{uploads.length} upload{uploads.length !== 1 ? 's' : ''}
 							</span>
+							<DropDown lableText='Convert all to' onSelectFormat={handleFormatChangeAll} onLeave={() => {}}></DropDown>
 							<button className='text-blue-600 hover:text-blue-700 font-medium'>View all uploads</button>
 						</div>
 					</div>
