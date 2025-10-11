@@ -81,8 +81,20 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate?: () => void
 		console.log('sent to backend.');
 		console.log(id);
 	};
+
+	const [hoveringFormatId, setHoveringFormatId] = React.useState<string | null>(null);
+
+	const handleFormatHover = (uploadId: string) => {
+		setHoveringFormatId(uploadId);
+	};
+
 	const handleFormatLeave = () => {
 		setHoveringFormatId(null);
+	};
+
+	const handleFormatChange = async (uploadId: string, newFormat: string) => {
+		await handleTargetFormatChange(uploadId, newFormat);
+		setHoveringFormatId('');
 	};
 
 	return (
@@ -120,6 +132,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate?: () => void
 
 											<div className='flex items-center space-x-4 text-sm text-gray-500'>
 												<span>{getStatusText(upload.status)}</span>
+												<span className='w-[97px] h-[25.49px]' onMouseEnter={() => handleFormatHover(upload.id)}>
 														<DropDown onLeave={handleFormatLeave} onSelectFormat={(newFormat) => handleFormatChange(upload.id, newFormat)} />
 											</div>
 
