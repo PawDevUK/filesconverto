@@ -119,7 +119,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 	};
 
 	return (
-		<div className='w-full max-w-4xl mx-auto py-6'>
+		<div className='w-full mx-auto py-6'>
 			<div className='bg-white rounded-xl shadow-lg border border-gray-200'>
 				<div className='divide-y divide-gray-200'>
 					{uploads.length === 0 ? (
