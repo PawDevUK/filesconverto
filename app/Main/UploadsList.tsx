@@ -81,6 +81,9 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate?: () => void
 		console.log('sent to backend.');
 		console.log(id);
 	};
+	const handleFormatLeave = () => {
+		setHoveringFormatId(null);
+	};
 
 	return (
 		<div className='w-full max-w-4xl mx-auto py-6'>
@@ -117,8 +120,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate?: () => void
 
 											<div className='flex items-center space-x-4 text-sm text-gray-500'>
 												<span>{getStatusText(upload.status)}</span>
-												<span>•</span>
-												<span>{upload.uploadTime}</span>
+														<DropDown onLeave={handleFormatLeave} onSelectFormat={(newFormat) => handleFormatChange(upload.id, newFormat)} />
 											</div>
 
 											{/* Progress Bar for Converting */}
