@@ -7,8 +7,8 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 ### Tasks to Do
 
 - [ ] First file type to implement conversion is PDF.
-- [ ] Add onLeave to list elements so the dropdown closes on leave.
-- [ ] Add dropdown to change target format for all files.
+- [x] Add onLeave to list elements so the dropdown closes on leave.
+- [x] Add dropdown to change target format for all files.
 - [x] Tidy up the project and learn how to structure the directory.
 
 ##### Front-End
