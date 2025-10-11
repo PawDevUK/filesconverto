@@ -7,7 +7,7 @@ import { removeFile } from '../utils/IndexedDB';
 import DropDown from '../components/ui/DropDown';
 import { set, get } from 'idb-keyval';
 
-const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate?: () => void }> = ({ uploads, onUpdate }) => {
+const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void }> = ({ uploads, onUpdate }) => {
 	const getStatusIcon = (status: UploadsInfoTypes['status']) => {
 		switch (status) {
 			case 'converting':
