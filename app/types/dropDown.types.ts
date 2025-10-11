@@ -1,3 +1,4 @@
-export type DropDownProps={
-    onSelectFormat:(format:string) => void
-}
+export type DropDownProps = {
+	onSelectFormat: (format: string) => void;
+	onLeave: () => void;
+};
