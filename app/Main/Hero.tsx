@@ -6,6 +6,7 @@ import ServiceInfoCards from './ServiceInfoCards';
 import FileFormat from './FileFormats';
 import HowItWorks from './HowItWorks';
 import UploadsList from './UploadsList';
+import About from './About';
 
 import { UploadsInfoTypes } from '@/app/types/upload.types';
 import { store } from '@/app/store/data';
@@ -44,6 +45,9 @@ const Hero: React.FC = () => {
 			</section>
 			<section id='how-it-works' className='py-8 px-6 bg-white text-center'>
 				<HowItWorks></HowItWorks>
+			</section>
+			<section>
+				<About></About>
 			</section>
 			<section>
 				<ServiceInfoCards></ServiceInfoCards>
