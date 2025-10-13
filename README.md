@@ -43,6 +43,9 @@ Time Line:
   I have learn today how NEXT handles communication between front-end, back end via axios and routes.  
   I have today went trough few npm packages and learn that is better to use python packages. I have started to implement pip package and created new directory with python cloud function to handle pdf conversion. At the moment I'm struggling to understand how to declare type script function and pass props to components as it slightly different than in React. I need learn to do it so a file can be uploaded and sent to python cloud function.
 
+11/10/25  
+  Focused on improving the user interface and fixing deployment issues. Implemented hover-based format selection for uploaded files, allowing users to change target formats by hovering over format displays. Enhanced the UploadsList component with better responsive design by removing width constraints for mobile compatibility. Added proper TypeScript type safety by making dropdown props optional and fixing missing fileSize properties in mock data that were causing Vercel build failures. Completed bulk format conversion functionality and improved overall user experience with smooth hover interactions. All changes were properly committed and the project is now deployment-ready with resolved compilation errors.
+
 #### Dropzone Widget
 
 Idea for the better file upload while working with the files is to create some kind of widget on the bottom right side or bottom left side corner e.g chat bot window but smaller so file from the
