@@ -14,21 +14,30 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 - [x] Fixed RWD for Header.
 - [x] Create 'How it works' section with 'Step 1,2,3'
 - [x] Create 'File Types' section with cards which each of them will represent file type.
-- [ ] Tidy up uploads list items.It need to have right buttons and info for every stage of cicle eg. uploaded to front-end, converted and ready to downoload, downloaded..
+- [x] Move status info on the right side of the format buton.
+- [x] Move the size on the right side of the file name.
+- [x] Change the "Choose format" button. (Removed mouse hover and the blue button).
+- [x] Remove/diasable "Choose format" button on 'converting...' uploadlist item.
+- [x] Remove/diasable "Choose format" button on 'Failed' uploadlist item.
+- [x] Remove/diasable "Choose format" button on 'Completed' uploadlist item.
+- [x] Center the text in "Choose format".
+- [x] Tidy up uploads list items. It need to have right buttons and info for every stage of cicle eg. uploaded to front-end, converted and ready to downoload, downloaded..
 - [ ] Add multi files upload.
 - [ ] Add button to convert all uploaded.
+- [ ] Reduce buttons of the uploadl list items buttons for mobile devices.
 - [ ] Fix RWD as it is very bad on mobile devices.
 - [ ] Fix the non-closing mobile menu onClick "Go Premium"
 - [ ] Fix bug where menu button disapear on mobile devices.
 - [ ] Create a progress bar using Tailwind CSS.
 - [ ] Create 'About' section which will explain what service provides.
 - [ ] Update Footer.
-- [ ] Change main title text from 'Convert Files Effortlessly' to 'Files Converter'
-- [ ] Remove temporally from the header none used links.
+- [x] Change main title text from 'Convert Files Effortlessly' to 'Files Converter' (It is Convert Files).
+- [x] Remove temporally from the header none used links.
 - [ ] Create logic which recognize the free user.
 
 ##### Back-End
 
+- [ ] Learn about creating live progress bar for convertion and add this functionality.
 - [x] Choose reliable NPM packages for converting PDF documents.
   I HAVE DECIDED TO USE PYTHON PACKAGES AS NPM PACKAGES ARE EMPTY OR UNRELIABLE !!!!
 - [ ] Learn how react hook is define and how to use it in Next js Component. How to handle props.
