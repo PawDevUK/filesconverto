@@ -44,7 +44,7 @@ export interface UploadsInfoTypes {
 	fileSize: number;
 	originalFormat: string;
 	targetFormat: string;
-	status: 'pending' | 'converting' | 'completed' | 'failed' | 'uploaded';
+	status: 'converting' | 'completed' | 'failed' | 'uploaded';
 	progress?: number;
 	downloadUrl?: string;
 	uploadTime: string;
