@@ -8,7 +8,7 @@ const { documentFormatsDisplay } = store;
 const DropDown: React.FC<DropDownProps> = ({ onSelectFormat, onLeave, lableText }) => {
 	const [open, setOpen] = useState(false);
 	const menuRef = useRef<HTMLDivElement>(null);
-    
+
 	useEffect(() => {
 		function handleClickOutside(event: MouseEvent) {
 			if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
