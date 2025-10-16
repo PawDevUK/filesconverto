@@ -5,9 +5,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import getBaseUrl from '../hooks/baseURL';
 
-import {GreenButton} from '@/app/components/ui/Button'
+import { GreenButton } from '@/app/components/ui/Button';
 
-import { store } from "../store/data";
+import { store } from '../store/data';
 
 type HeaderProps = {
 	companyName?: string;
@@ -38,8 +38,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16'>
 				<div className='flex-shrink-0 flex flex-row items-center logo'>
 					<Link href='/' className='flex items-center space-x-2'>
-						<Image src='/favicon.ico' alt='Logo' width={30} height={30} />
-						<span className='text-2xl font-bold text-gray-900'>{store.companyName}</span>
+						<Image src='/favicon.ico' alt='Logo' className='sm:w-[20px] sm:h-[20px] md:w-[25px] md:h-[25px] lg:w-[30px] lg:h-[30px]' width={20} height={20} />
+						<span className='sm:text-lg md:text-1xl font-bold text-gray-900'>{store.companyName}</span>
 					</Link>
 				</div>
 				<nav className='hidden md:flex space-x-8'>
@@ -49,9 +49,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 					<Link href='/Login' className='text-gray-700 hover:text-blue-600 border border-gray-300 rounded px-4 py-2 hover:border-blue-600'>
 						Log In
 					</Link>
-					<GreenButton href='/PremiumPrices'>
-						Go Premium
-					</GreenButton>
+					<GreenButton href='/PremiumPrices'>Go Premium</GreenButton>
 				</div>
 				<div className='md:hidden'>
 					<button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label='button' className='text-gray-700 focus:outline-none'>
@@ -68,9 +66,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 						<Link href='/Login' className='text-gray-700 hover:text-blue-600'>
 							Log In
 						</Link>
-						<GreenButton href='/PremiumPrices'>
-							Go Premium
-						</GreenButton>
+						<GreenButton href='/PremiumPrices'>Go Premium</GreenButton>
 					</div>
 				</div>
 			)}
