@@ -184,44 +184,6 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 									</div>
 
 									{/* Actions */}
-									{/* <div className='flex items-center space-x-2 ml-4'>
-										{upload.status === 'completed' && upload.downloadUrl && (
-											<button
-												onClick={() => handleDownload(upload)}
-												className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md transition-colors'>
-												<Download className='w-4 h-4 mr-1' />
-												Download
-											</button>
-										)}
-										{upload.status === 'failed' && (
-											<>
-												<button
-													onClick={() => handleRetry(upload.id)}
-													className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors'>
-													<RotateCcw className='w-4 h-4 mr-1' />
-													Retry
-												</button>
-											</>
-										)}
-										{upload.status === 'uploaded' && (
-											<>
-												<button
-													onClick={() => handleConvertion(upload.id)}
-													className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors'>
-													Convert
-												</button>
-											</>
-										)}
-
-										{upload.status === 'converting' && <div className='px-3 py-1.5 text-sm text-gray-500'>Processing...</div>}
-										{
-											<button
-												onClick={() => handleDeleteClick(upload.id)}
-												className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-400 bg-white hover:bg-gray-100 rounded-md transition-colors'>
-												<Trash2 className='w-4 h-4 mr-1' />
-											</button>
-										}
-									</div> */}
 									<div className='flex items-center space-x-2 ml-4'>
 										{upload.status === 'completed' && upload.downloadUrl && (
 											<button
