@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 				<div className='flex-shrink-0 flex flex-row items-center logo'>
 					<Link href='/' className='flex items-center space-x-1'>
 						<Image src='/favicon.ico' alt='Logo' className='sm:w-[20px] sm:h-[20px] md:w-[25px] md:h-[25px]' width={20} height={20} />
-						<span className='sm:text-lg md:text-1xl font-bold text-gray-900'>{store.companyName}</span>
+						<span className='text-md md:text-lg font-bold text-gray-900'>{store.companyName}</span>
 					</Link>
 				</div>
 				<nav className='hidden md:flex space-x-8'>
