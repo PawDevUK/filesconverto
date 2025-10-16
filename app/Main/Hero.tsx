@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
 
 	return (
 		<>
-			<section className='text-center pb-5 max-w-3xl'>
+			<section className='text-center pb-5 w-screen'>
 				<h2 className='text-4xl font-bold mb-4'>Convert Files</h2>
 				<p className='text-lg text-gray-600 mb-6'>Fast, free, and secure files conversion to multiple formats.</p>
 
