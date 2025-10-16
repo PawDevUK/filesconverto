@@ -29,7 +29,7 @@ const DropDown: React.FC<DropDownProps> = ({ onSelectFormat, onLeave, lableText 
 		<div className='relative inline-block' ref={menuRef}>
 			<button
 				type='button'
-				className='inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-0.5 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500'
+				className='inline-flex w-full justify-center items-center gap-x-1.5 rounded-md bg-white px-3 py-0.5 text-[12px] font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500'
 				onClick={() => setOpen((v) => !v)}
 				aria-haspopup='true'
 				aria-expanded={open}>
