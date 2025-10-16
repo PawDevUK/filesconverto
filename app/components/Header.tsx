@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 				</div>
 			</div>
 			{isMenuOpen && (
-				<div className='md:hidden bg-white border-t'>
+				<div className='md:hidden bg-white border-t border-gray-200'>
 					<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col space-y-4'>
 						<Menu></Menu>
 						<Link href='/Login' className='text-gray-700 hover:text-blue-600'>
