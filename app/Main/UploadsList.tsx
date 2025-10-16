@@ -82,19 +82,8 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		console.log(id);
 	};
 
-	const [hoveringFormatId, setHoveringFormatId] = React.useState<string | null>(null);
-
-	const handleFormatHover = (uploadId: string) => {
-		setHoveringFormatId(uploadId);
-	};
-
-	const handleFormatLeave = () => {
-		setHoveringFormatId(null);
-	};
-
 	const handleFormatChange = async (uploadId: string, newFormat: string) => {
 		await handleTargetFormatChange(uploadId, newFormat);
-		setHoveringFormatId('');
 	};
 
 	const handleFormatChangeAll = async (newFormat: string) => {
@@ -132,12 +121,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 						</div>
 					) : (
 						uploads.map((upload: UploadsInfoTypes) => (
-							<div
-								key={upload.id}
-								onMouseLeave={() => {
-									handleFormatLeave();
-								}}
-								className='px-6 py-4 hover:bg-gray-50 transition-colors'>
+							<div key={upload.id} className='px-6 py-4 hover:bg-gray-50 transition-colors'>
 								<div className='flex items-center justify-between'>
 									<div className='flex items-center space-x-4 flex-1'>
 										{/* Status Icon */}
@@ -150,10 +134,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 											</div>
 
 											<div className='px-0 flex items-center space-x-4 text-sm text-gray-500'>
-												<span>{getStatusText(upload.status)}</span>
-												<span>{returnSize(upload)}</span>
-												<span className='w-[97px] h-[25.49px]' onMouseEnter={() => handleFormatHover(upload.id)}>
-													{!upload.targetFormat || hoveringFormatId === upload.id ? (
+												{upload.status === 'uploaded' ? (
 														<DropDown
 															lableText='Format'
 															onLeave={handleFormatLeave}
