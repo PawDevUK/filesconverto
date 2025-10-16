@@ -135,19 +135,16 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 
 											<div className='px-0 flex items-center space-x-4 text-sm text-gray-500'>
 												{upload.status === 'uploaded' ? (
+													<span className='w-[125px] h-[25.49px] '>
 														<DropDown
-															lableText='Format'
-															onLeave={handleFormatLeave}
+															lableText={`${upload.originalFormat} → ${upload.targetFormat}`}
 															onSelectFormat={(newFormat) => handleFormatChange(upload.id, newFormat)}
 														/>
-													) : (
-														<span
-															className='w-full h-full inline-flex items-center justify-center px-1 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 cursor-pointer hover:bg-blue-200 transition-colors'
-															title='Hover to change format'>
-															{upload.originalFormat} → {upload.targetFormat}
-														</span>
-													)}
-												</span>
+													</span>
+												) : (
+													<></>
+												)}
+												<span>{getStatusText(upload.status)}</span>
 											</div>
 
 											{/* Progress Bar for Converting */}
