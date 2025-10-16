@@ -35,7 +35,6 @@ const Hero: React.FC = () => {
 			<section className='text-center pb-5 w-[95vw] md:w-[60vw]'>
 				<h2 className='text-3xl font-bold mb-4'>Convert Files</h2>
 				<p className='text-lg text-gray-600 mb-6'>Fast, free, and secure files conversion to multiple formats.</p>
-
 				<Dropzone
 					onUpload={async () => {
 						handleUpdate();
