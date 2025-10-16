@@ -131,6 +131,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 										<div className='flex-1 min-w-0'>
 											<div className='flex items-center space-x-2 mb-1'>
 												<h3 className='text-sm font-medium text-gray-900 truncate'>{shortenName(upload.fileName)}</h3>
+												<span>{returnSize(upload)}</span>
 											</div>
 
 											<div className='px-0 flex items-center space-x-4 text-sm text-gray-500'>
