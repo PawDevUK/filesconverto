@@ -4,26 +4,23 @@
 
 This repository contains the complete codebase for FilesConverto.com. As the project is still in its early development stages, the repository remains relatively small. The goal is for it to evolve into a comprehensive platform with all the essential features needed to support the conversion of the most commonly used file types.
 
-### Tasks to Do
+#### To Do
 
-- [ ] File type to implement conversion is PDF.
+##### Front-End
+
 - [x] Add onLeave to list elements so the dropdown closes on leave.
 - [x] Add dropdown to change target format for all files.
 - [x] Tidy up the project and learn how to structure the directory.
 - [x] Fixed RWD for Header.
-- [ ] Fix Header on large screens to be full -10% width.
+- [x] Create 'How it works' section with 'Step 1,2,3'
+- [x] Create 'File Types' section with cards which each of them will represent file type.
 - [ ] Tidy up uploads list items.It need to have right buttons and info for every stage of cicle eg. uploaded to front-end, converted and ready to downoload, downloaded..
 - [ ] Add multi files upload.
 - [ ] Add button to convert all uploaded.
 - [ ] Fix RWD as it is very bad on mobile devices.
 - [ ] Fix the non-closing mobile menu onClick "Go Premium"
 - [ ] Fix bug where menu button disapear on mobile devices.
-
-##### Front-End
-
 - [ ] Create a progress bar using Tailwind CSS.
-- [x] Create 'How it works' section with 'Step 1,2,3'
-- [x] Create 'File Types' section with cards which each of them will represent file type.
 - [ ] Create 'About' section which will explain what service provides.
 - [ ] Update Footer.
 - [ ] Change main title text from 'Convert Files Effortlessly' to 'Files Converter'
