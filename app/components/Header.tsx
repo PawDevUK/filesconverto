@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 		<header className='bg-white shadow-sm fixed top-0 left-0 right-0 z-50 w-screen'>
 			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16'>
 				<div className='flex-shrink-0 flex flex-row items-center logo'>
-					<Link href='/' className='flex items-center space-x-2'>
+					<Link href='/' className='flex items-center space-x-1'>
 						<Image src='/favicon.ico' alt='Logo' className='sm:w-[20px] sm:h-[20px] md:w-[25px] md:h-[25px] lg:w-[30px] lg:h-[30px]' width={20} height={20} />
 						<span className='sm:text-lg md:text-1xl font-bold text-gray-900'>{store.companyName}</span>
 					</Link>
