@@ -267,7 +267,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 					)}
 				</div>
 
-				{uploads.length > 0 && (
+				{uploads.length > 1 && (
 					<div className='px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-xl'>
 						<div className='flex items-center justify-between text-sm text-gray-600'>
 							<span>
