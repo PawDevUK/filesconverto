@@ -77,9 +77,68 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		return `${sizeInKB.toFixed(2)} KB`;
 	};
 
-	const handleConvertion = (id: string) => {
-		console.log('sent to backend.');
-		console.log(id);
+	const handleConvertion = async (id: string) => {
+		console.log('Starting conversion for:', id);
+
+		// Set initial converting status
+		const file = await get(id);
+		if (!file) return;
+
+		file.status = 'converting';
+		file.progress = 0;
+		await set(id, file);
+		if (onUpdate) await onUpdate();
+
+		// Simulate progress with random intervals
+		await simulateProgress(id);
+	};
+
+	const simulateProgress = async (id: string): Promise<void> => {
+		return new Promise(async (resolve) => {
+			let currentProgress = 0;
+			const totalDuration = 5000 + Math.random() * 5000; // 5-10 seconds total
+			const startTime = Date.now();
+
+			const updateProgress = async () => {
+				const elapsed = Date.now() - startTime;
+				const progressRatio = elapsed / totalDuration;
+
+				// Use easing function for more realistic progress
+				// Progress faster at the beginning, slower near the end
+				const easedProgress = 100 * (1 - Math.pow(1 - progressRatio, 3));
+
+				// Add some randomness (±5%)
+				const randomOffset = (Math.random() - 0.5) * 10;
+				currentProgress = Math.min(95, Math.max(currentProgress, easedProgress + randomOffset));
+
+				// Update the file in IndexedDB
+				const file = await get(id);
+				if (file) {
+					file.progress = Math.floor(currentProgress);
+					await set(id, file);
+					if (onUpdate) await onUpdate();
+				}
+
+				if (progressRatio >= 1) {
+					// Complete the conversion
+					const finalFile = await get(id);
+					if (finalFile) {
+						finalFile.status = 'completed';
+						finalFile.progress = 100;
+						finalFile.downloadUrl = 'https://example.com/download/' + id; // Placeholder
+						await set(id, finalFile);
+						if (onUpdate) await onUpdate();
+					}
+					resolve();
+				} else {
+					// Random interval between updates (100-500ms)
+					const nextInterval = 100 + Math.random() * 400;
+					setTimeout(updateProgress, nextInterval);
+				}
+			};
+
+			updateProgress();
+		});
 	};
 
 	const handleFormatChange = async (uploadId: string, newFormat: string) => {
