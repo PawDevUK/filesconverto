@@ -245,7 +245,10 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 											<>
 												<button
 													onClick={() => handleConvertion(upload.id)}
-													className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors'>
+													disabled={!upload.targetFormat}
+													className={`inline-flex items-center px-3 py-1.5 text-sm font-medium text-white rounded-md transition-colors ${
+														upload.targetFormat ? 'bg-blue-600 hover:bg-blue-700 cursor-pointer' : 'bg-gray-400 cursor-not-allowed opacity-50'
+													}`}>
 													Convert
 												</button>
 											</>

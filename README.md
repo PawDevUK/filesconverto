@@ -27,7 +27,7 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 - [x] Create mockup logic to convert files.
 - [ ] Add button to convert all uploaded.
 - [ ] Reduce buttons of the upload list items buttons for mobile devices.
-- [ ] Disable "convert" button for uploads list items which haven't got choosen target format.
+- [x] Disable "convert" button for uploads list items which haven't got choosen target format.
 - [ ] Fix RWD as it is very bad on mobile devices.
 - [ ] Fix the non-closing mobile menu onClick "Go Premium"
 - [ ] Fix bug where menu button disapear on mobile devices.
@@ -62,6 +62,9 @@ Time Line:
 
 16/10/25  
   Significantly improved the uploads list UI by reorganizing the layout - moved status info to the right side of the format button, repositioned file size next to the file name, and centered text in the "Choose format" button. Removed hover-based format selection in favor of a cleaner, more intuitive dropdown interaction. Updated `UploadsList.tsx` to remove complex hover state management and simplified the component structure. Refactored `DropDown.tsx` to automatically close the dropdown menu after format selection, improving user experience. Enhanced `Dropzone.tsx` to support multiple file uploads (up to 10 files) with placeholder download URLs and default status set to completed. Updated the `README.md` To-Do section by marking multiple front-end tasks as completed including tidying up uploads list items, improving the "Choose format" button functionality, changing the main title text, and removing unused header links. Added new tasks for mobile optimization including reducing buttons on mobile devices and implementing a live progress bar for conversions. All changes focus on improving UI/UX and preparing for backend integration.
+
+17/10/25  
+  Enhanced file upload functionality and implemented realistic conversion progress simulation. Updated `Dropzone.tsx` to support multiple file uploads (up to 20 files) with proper IndexedDB storage using unique IDs for each file, fixing the previous DataError. Added 'use client' directive to prevent hydration mismatches. Implemented mock conversion logic in `UploadsList.tsx` with a `simulateProgress` function that creates realistic irregular progress updates using cubic easing (5-10 seconds duration with random intervals). The progress simulation properly manages file status transitions from uploaded → converting → completed with smooth progress bar updates. Created automated timeline update system with `update-timeline.js` Node.js script that analyzes git changes and generates intelligent summaries, configured to run via `npm run timeline`. Improved dropdown component to auto-close on selection and refined overall UI interactions. Modified 9 files with 392 additions and 109 deletions focusing on frontend polish and development tooling.
 
 #### Dropzone Widget
 
