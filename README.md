@@ -22,9 +22,12 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 - [x] Remove/diasable "Choose format" button on 'Completed' uploadlist item.
 - [x] Center the text in "Choose format".
 - [x] Tidy up uploads list items. It need to have right buttons and info for every stage of cicle eg. uploaded to front-end, converted and ready to downoload, downloaded..
-- [ ] Add multi files upload.
+- [x] Add multi files upload.
+- [x] Remove "Processing..."
+- [x] Create mockup logic to convert files.
 - [ ] Add button to convert all uploaded.
-- [ ] Reduce buttons of the uploadl list items buttons for mobile devices.
+- [ ] Reduce buttons of the upload list items buttons for mobile devices.
+- [ ] Disable "convert" button for uploads list items which haven't got choosen target format.
 - [ ] Fix RWD as it is very bad on mobile devices.
 - [ ] Fix the non-closing mobile menu onClick "Go Premium"
 - [ ] Fix bug where menu button disapear on mobile devices.
