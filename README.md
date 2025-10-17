@@ -25,9 +25,9 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 - [x] Add multi files upload.
 - [x] Remove "Processing..."
 - [x] Create mockup logic to convert files.
-- [ ] Add button to convert all uploaded.
-- [ ] Reduce buttons of the upload list items buttons for mobile devices.
+- [x] Add button to convert all uploaded.
 - [x] Disable "convert" button for uploads list items which haven't got choosen target format.
+- [ ] Reduce buttons of the upload list items buttons for mobile devices.
 - [ ] Fix RWD as it is very bad on mobile devices.
 - [ ] Fix the non-closing mobile menu onClick "Go Premium"
 - [ ] Fix bug where menu button disapear on mobile devices.
