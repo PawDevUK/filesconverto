@@ -191,8 +191,6 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 												</button>
 											</>
 										)}
-
-										{upload.status === 'converting' && <div className='px-3 py-1.5 text-sm text-gray-500'>Processing...</div>}
 										{
 											<button
 												onClick={() => handleDeleteClick(upload.id)}
