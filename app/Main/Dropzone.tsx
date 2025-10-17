@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { UploadsInfoTypes } from '@/app/types/upload.types';
 import { Upload } from 'lucide-react';
@@ -12,22 +14,26 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 			console.error('No files accepted');
 			return;
 		}
-		const file = acceptedFiles[0];
-		const uploadedFile: UploadsInfoTypes = {
-			id: uuidv4(),
-			file: file,
-			fileName: file.name,
-			fileSize: file.size,
-			originalFormat: getFileExt(file.name),
-			targetFormat: '',
-			status: 'uploaded',
-			progress: 30,
-			downloadUrl: '',
-			uploadTime: format(new Date(), 'HH:mm:ss'),
-			createdAt: new Date(),
-			updatedAt: new Date(),
-		};
-		await set(uploadedFile.id, uploadedFile);
+
+		// Process each file and store in IndexedDB
+		for (const file of acceptedFiles) {
+			const uploadedFile: UploadsInfoTypes = {
+				id: uuidv4(),
+				file: file,
+				fileName: file.name,
+				fileSize: file.size,
+				originalFormat: getFileExt(file.name),
+				targetFormat: '',
+				status: 'uploaded',
+				progress: 0,
+				downloadUrl: '',
+				uploadTime: format(new Date(), 'HH:mm:ss'),
+				createdAt: new Date(),
+				updatedAt: new Date(),
+			};
+			await set(uploadedFile.id, uploadedFile);
+		}
+
 		if (onUpload) onUpload();
 	};
 	const getFileExt = (filename: string): string => {
@@ -38,8 +44,8 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 		accept: {
 			'application/pdf': ['.pdf'],
 		},
-		maxFiles: 1,
-		multiple: false,
+		maxFiles: 20,
+		multiple: true,
 		maxSize: 50 * 1024 * 1024, // 50MB limit
 	});
 	return (
