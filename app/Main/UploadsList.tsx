@@ -192,6 +192,10 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		}
 	};
 
+	const checkIfMultiUploaded = () => {
+		return uploads.filter((upload) => upload.status === 'uploaded').length < 2;
+	};
+
 	return (
 		<div className='w-full mx-auto py-6'>
 			<div className='bg-white rounded-xl shadow-lg border border-gray-200'>
@@ -223,6 +227,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 												{upload.status === 'uploaded' ? (
 													<span className='w-[125px] h-[25.49px] '>
 														<DropDown
+															disabled={false}
 															lableText={`${upload.originalFormat} → ${upload.targetFormat}`}
 															onSelectFormat={(newFormat) => handleFormatChange(upload.id, newFormat)}
 														/>
@@ -297,7 +302,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 					<div className='flex px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-xl justify-between'>
 						<div className='flex items-center text-sm text-gray-600'>
 							<span className='mx-[20px]'>
-								<DropDown lableText='Convert all to' onSelectFormat={handleFormatChangeAll} />
+								<DropDown disabled={checkIfMultiUploaded()} lableText='Convert all to' onSelectFormat={handleFormatChangeAll} />
 							</span>
 							<span>
 								{uploads.length} upload{uploads.length !== 1 ? 's' : ''}
@@ -306,8 +311,11 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 						<div className=''>
 							<button
 								onClick={handleConvertAll}
-								className='inline-flex items-center mr-[55px] px-3 py-1.5 text-sm font-medium text-white rounded-md transition-colors bg-blue-600 hover:bg-blue-700 cursor-pointer'>
-								Convert all.
+								disabled={checkIfMultiUploaded()}
+								className={`inline-flex items-center mr-[55px] px-3 py-1.5 text-sm font-medium text-white rounded-md transition-colors ${
+									checkIfMultiUploaded() ? 'bg-gray-400 cursor-not-allowed opacity-50' : 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
+								}`}>
+								Convert all
 							</button>
 						</div>
 					</div>
