@@ -166,6 +166,32 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		}
 	};
 
+	const handleConvertAll = async () => {
+		try {
+			// Get all keys from IndexedDB
+			const keys = await import('idb-keyval').then((m) => m.keys());
+
+			// Loop over uploaded files and convert those that are ready
+			for (const key of keys) {
+				const upload = await get(key);
+
+				// Check if file has target format selected and status is 'uploaded'
+				if (upload && upload.id && upload.targetFormat && upload.status === 'uploaded') {
+					// Trigger conversion for this file
+					handleConvertion(upload.id);
+
+					// Add small delay between conversions to avoid overwhelming the system
+					await new Promise((resolve) => setTimeout(resolve, 200));
+				}
+			}
+
+			// Trigger UI update
+			if (onUpdate) await onUpdate();
+		} catch (error) {
+			console.error('Error converting all files:', error);
+		}
+	};
+
 	return (
 		<div className='w-full mx-auto py-6'>
 			<div className='bg-white rounded-xl shadow-lg border border-gray-200'>
@@ -268,12 +294,21 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 				</div>
 
 				{uploads.length > 1 && (
-					<div className='px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-xl'>
-						<div className='flex items-center justify-between text-sm text-gray-600'>
+					<div className='flex px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-xl justify-between'>
+						<div className='flex items-center text-sm text-gray-600'>
+							<span className='mx-[20px]'>
+								<DropDown lableText='Convert all to' onSelectFormat={handleFormatChangeAll} />
+							</span>
 							<span>
 								{uploads.length} upload{uploads.length !== 1 ? 's' : ''}
 							</span>
-							<DropDown lableText='Convert all to' onSelectFormat={handleFormatChangeAll} />
+						</div>
+						<div className=''>
+							<button
+								onClick={handleConvertAll}
+								className='inline-flex items-center mr-[55px] px-3 py-1.5 text-sm font-medium text-white rounded-md transition-colors bg-blue-600 hover:bg-blue-700 cursor-pointer'>
+								Convert all.
+							</button>
 						</div>
 					</div>
 				)}
