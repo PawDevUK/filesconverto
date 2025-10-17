@@ -49,7 +49,7 @@ export const mockUploads: UploadsInfoTypes[] = [
 		fileSize: 3145728, // 3MB
 		originalFormat: 'DOCX',
 		targetFormat: 'PDF',
-		status: 'pending',
+		status: 'converting',
 		uploadTime: '10 mins ago',
 		createdAt: new Date(Date.now() - 10 * 60 * 1000),
 		updatedAt: new Date(Date.now() - 10 * 60 * 1000),
@@ -61,7 +61,7 @@ export const mockUploads: UploadsInfoTypes[] = [
 		fileSize: 2621440, // 2.5MB
 		originalFormat: 'DOCX',
 		targetFormat: 'PDF',
-		status: 'pending',
+		status: 'converting',
 		uploadTime: '10 mins ago',
 		createdAt: new Date(Date.now() - 10 * 60 * 1000),
 		updatedAt: new Date(Date.now() - 10 * 60 * 1000),
@@ -73,7 +73,7 @@ export const mockUploads: UploadsInfoTypes[] = [
 		fileSize: 1572864, // 1.5MB
 		originalFormat: 'DOCX',
 		targetFormat: 'PDF',
-		status: 'pending',
+		status: 'converting',
 		uploadTime: '10 mins ago',
 		createdAt: new Date(Date.now() - 10 * 60 * 1000),
 		updatedAt: new Date(Date.now() - 10 * 60 * 1000),
@@ -85,7 +85,7 @@ export const mockUploads: UploadsInfoTypes[] = [
 		fileSize: 4194304, // 4MB
 		originalFormat: 'DOCX',
 		targetFormat: 'PDF',
-		status: 'pending',
+		status: 'converting',
 		uploadTime: '10 mins ago',
 		createdAt: new Date(Date.now() - 10 * 60 * 1000),
 		updatedAt: new Date(Date.now() - 10 * 60 * 1000),
@@ -103,7 +103,7 @@ export const simulateUpload = (fileName: string, originalFormat: string, targetF
 		fileSize: Math.floor(Math.random() * 5242880) + 1048576, // Random size between 1MB and 5MB
 		originalFormat: originalFormat.toUpperCase(),
 		targetFormat: targetFormat.toUpperCase(),
-		status: 'pending',
+		status: 'converting',
 		uploadTime: 'Just now',
 		createdAt: new Date(),
 		updatedAt: new Date(),
