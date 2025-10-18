@@ -36,10 +36,6 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		}
 	};
 
-	const handleRetry = (uploadId: string) => {
-		console.log('Retrying upload:', uploadId);
-	};
-
 	const handleDeleteClick = async (fileId: string) => {
 		await removeFile(fileId);
 		if (onUpdate) await onUpdate();
@@ -265,7 +261,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 										{upload.status === 'failed' && (
 											<>
 												<button
-													onClick={() => handleRetry(upload.id)}
+													onClick={() => handleConvertion(upload.id)}
 													className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors'>
 													<RotateCcw className='w-4 h-4 mr-1' />
 													Retry
