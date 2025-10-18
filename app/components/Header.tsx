@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import getBaseUrl from '../hooks/baseURL';
 
 import { GreenButton } from '@/app/components/ui/Button';
 
@@ -15,17 +14,16 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({}) => {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-	const [baseUrl, setBaseUrl] = useState<string>('');
 
-	useEffect(() => {
-		setBaseUrl(getBaseUrl());
-	}, []);
+	const Menu: React.FC<{ closeMenu?: () => void }> = ({ closeMenu }) => {
+		const handleMenuClick = () => {
+			if (closeMenu) closeMenu();
+		};
 
-	const Menu: React.FC = () => {
 		return (
 			<>
 				{store.routes.map((route) => (
-					<Link key={route.href} href={`${baseUrl}${route.href}`} className='text-gray-700 hover:[color:var(--color-primary)]'>
+					<Link key={route.href} href='/not-found-temp' className='text-gray-700 hover:[color:var(--color-primary)]' onClick={handleMenuClick}>
 						{route.route}
 					</Link>
 				))}
