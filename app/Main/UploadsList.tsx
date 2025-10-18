@@ -80,6 +80,18 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		const file = await get(id);
 		if (!file) return;
 
+		// Random failure simulation (1 in 15 chance of failure)
+		const shouldFail = Math.random() < 1 / 15;
+
+		if (shouldFail) {
+			console.log('Conversion failed for:', id);
+			file.status = 'failed';
+			file.progress = 0;
+			await set(id, file);
+			if (onUpdate) await onUpdate();
+			return;
+		}
+
 		file.status = 'converting';
 		file.progress = 0;
 		await set(id, file);
