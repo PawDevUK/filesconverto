@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 					</Link>
 				</div>
 				<nav className='hidden md:flex space-x-8'>
-					<Menu></Menu>
+					<Menu />
 				</nav>
 				<div className='hidden md:flex items-center space-x-4'>
 					<Link href='/Login' className='text-gray-700 hover:text-blue-600 border border-gray-300 rounded px-4 py-2 hover:border-blue-600'>
@@ -60,11 +60,15 @@ const Header: React.FC<HeaderProps> = ({}) => {
 			{isMenuOpen && (
 				<div className='md:hidden bg-white border-t border-gray-200'>
 					<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col space-y-4'>
-						<Menu></Menu>
-						<Link href='/Login' className='text-gray-700 hover:text-blue-600'>
-							Log In
-						</Link>
-						<GreenButton href='/PremiumPrices'>Go Premium</GreenButton>
+						<Menu closeMenu={() => setIsMenuOpen(false)} />
+						<button className='text-left w-full' onClick={() => setIsMenuOpen(false)}>
+							<Link href='/Login' className='text-gray-700 hover:text-blue-600'>
+								Log In
+							</Link>
+						</button>
+						<button className='text-left w-full' onClick={() => setIsMenuOpen(false)}>
+							<GreenButton href='/PremiumPrices'>Go Premium</GreenButton>
+						</button>
 					</div>
 				</div>
 			)}
