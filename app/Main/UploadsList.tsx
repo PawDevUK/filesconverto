@@ -224,16 +224,16 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 					) : (
 						uploads.map((upload: UploadsInfoTypes) => (
 							<div key={upload.id} className='px-6 py-4 hover:bg-gray-50 transition-colors'>
-								<div className='flex items-center justify-between'>
-									<div className='flex items-center space-x-4 flex-1'>
+								<div className='flex items-center justify-between w-full'>
+									<div className='flex items-center space-x-2 md:space-x-4 flex-1 min-w-0'>
 										{/* Status Icon */}
 										<div className='flex-shrink-0'>{getStatusIcon(upload.status)}</div>
 
 										{/* File Info */}
 										<div className='flex-1 min-w-0'>
-											<div className='flex items-center space-x-2 mb-1'>
-												<h3 className='text-sm font-medium text-gray-900 truncate'>{shortenName(upload.fileName)}</h3>
-												<span>{returnSize(upload)}</span>
+											<div className='flex items-center mb-1'>
+												<h3 className='text-sm font-medium text-gray-900'>{shortenName(upload.fileName)}</h3>
+												<span className='text-xs md:text-base ml-2'>{returnSize(upload)}</span>
 											</div>
 
 											<div className='px-0 flex items-center space-x-4 text-sm text-gray-500'>
@@ -266,13 +266,13 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 									</div>
 
 									{/* Actions */}
-									<div className='flex items-center space-x-2 ml-4'>
+									<div className='flex items-center space-x-0 md:space-x-2 flex-shrink-0'>
 										{upload.status === 'completed' && upload.downloadUrl && (
 											<button
 												onClick={() => handleDownload(upload)}
 												className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md transition-colors'>
-												<Download className='w-4 h-4 mr-1' />
-												Download
+												<Download className='w-4 h-4 md:mr-1' />
+												<span className='hidden md:inline'>Download</span>
 											</button>
 										)}
 										{upload.status === 'failed' && (
@@ -281,7 +281,7 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 													onClick={() => handleConvertion(upload.id)}
 													className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors'>
 													<RotateCcw className='w-4 h-4 mr-1' />
-													Retry
+													<span className='hidden md:inline'>Retry</span>
 												</button>
 											</>
 										)}
@@ -300,8 +300,8 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 										{
 											<button
 												onClick={() => handleDeleteClick(upload.id)}
-												className='inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-400 bg-white hover:bg-gray-100 rounded-md transition-colors'>
-												<Trash2 className='w-4 h-4 mr-1' />
+												className='inline-flex items-center px-3 py-1 text-sm font-medium text-red-400 bg-white hover:bg-gray-100 rounded-md transition-colors'>
+												<Trash2 className='w-4 h-4' />
 											</button>
 										}
 									</div>
@@ -312,21 +312,21 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 				</div>
 
 				{uploads.length > 1 && (
-					<div className='flex px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-xl justify-between'>
+					<div className='flex items-center px-6 py-4 bg-gray-50 border-t border-gray-200 rounded-b-xl justify-between'>
 						<div className='flex items-center text-sm text-gray-600'>
-							<span className='mx-[20px]'>
-								<DropDown disabled={checkIfMultiUploaded()} lableText='Convert all to' onSelectFormat={handleFormatChangeAll} />
+							<span className='md:mx-[20px]'>
+								<DropDown disabled={!checkIfMultiUploaded()} lableText='Convert all to' onSelectFormat={handleFormatChangeAll} />
 							</span>
-							<span>
+							<span className='mx-[10px] md:mx-[5px]'>
 								{uploads.length} upload{uploads.length !== 1 ? 's' : ''}
 							</span>
 						</div>
 						<div className=''>
 							<button
 								onClick={handleConvertAll}
-								disabled={checkIfMultiUploaded()}
-								className={`inline-flex items-center mr-[55px] px-3 py-1.5 text-sm font-medium text-white rounded-md transition-colors ${
-									checkIfMultiUploaded() ? 'bg-gray-400 cursor-not-allowed opacity-50' : 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
+								disabled={!checkIfMultiUploaded()}
+								className={`inline-flex items-center mr-[5px] md:mr-[52px] px-3 py-1.5 text-sm font-medium text-white rounded-md transition-colors ${
+									checkIfMultiFormatSelected() ? 'bg-blue-600 hover:bg-blue-700 cursor-pointer' : 'bg-gray-400 cursor-not-allowed opacity-50'
 								}`}>
 								Convert all
 							</button>
