@@ -52,8 +52,8 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 		if (!name) throw new Error('File name is missing. All files must have a name.');
 
 		const nameLength = name.length;
-		const nameLengthTarget = 16;
-		const nameLengthTargetMAX = 20;
+		const nameLengthTarget = 11;
+		const nameLengthTargetMAX = 15;
 		const dotIndex = name.lastIndexOf('.');
 
 		if (nameLength > nameLengthTargetMAX) {
