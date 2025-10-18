@@ -27,15 +27,21 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 - [x] Create mockup logic to convert files.
 - [x] Add button to convert all uploaded.
 - [x] Disable "convert" button for uploads list items which haven't got choosen target format.
-- [ ] Reduce buttons of the upload list items buttons for mobile devices.
-- [ ] Fix RWD as it is very bad on mobile devices.
-- [ ] Fix the non-closing mobile menu onClick "Go Premium"
-- [ ] Fix bug where menu button disapear on mobile devices.
-- [ ] Create a progress bar using Tailwind CSS.
+- [x] Add css to push the "trash" and "download" button to the right.
+- [x] Add responcive text size for the file size text.
+- [x] Remove text in buttons in list items on small devices and leave only icons.
+- [x] Adjust buttons size in the uploads list footer as curently they are to big and not possitioned correctly.
+- [x] Fix bug where "convert all" button is anabled even if the format of files is not selected.
+- [x] Reduce buttons of the upload list items for mobile devices.
+- [x] Add random failed on convertion.
+- [x] Fix RWD as it is very bad on mobile devices.
+- [x] Fix the non-closing mobile menu onClick "Go Premium"
+- [x] Fix bug where menu button disapear on mobile devices.
+- [x] Create a progress bar using Tailwind CSS.
+- [x] Remove temporally from the header none used links.
+- [x] Change main title text from 'Convert Files Effortlessly' to 'Files Converter' (It is Convert Files).
 - [ ] Create 'About' section which will explain what service provides.
 - [ ] Update Footer.
-- [x] Change main title text from 'Convert Files Effortlessly' to 'Files Converter' (It is Convert Files).
-- [x] Remove temporally from the header none used links.
 - [ ] Create logic which recognize the free user.
 
 ##### Back-End
