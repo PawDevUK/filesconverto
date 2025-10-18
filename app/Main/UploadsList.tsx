@@ -201,7 +201,12 @@ const UploadsList: React.FC<{ uploads: UploadsInfoTypes[]; onUpdate: () => void 
 	};
 
 	const checkIfMultiUploaded = () => {
-		return uploads.filter((upload) => upload.status === 'uploaded').length < 2;
+		return uploads.filter((upload) => upload.status === 'uploaded').length > 1;
+	};
+
+	const checkIfMultiFormatSelected = () => {
+		// Check if multi files have formats selected and statuses uploaded.
+		return uploads.filter((upload) => upload.targetFormat && upload.status === 'uploaded').length > 1;
 	};
 
 	return (
