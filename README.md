@@ -8,6 +8,7 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 
 ##### Front-End
 
+- [ ] Create the jumbo card to show Convert, Compres, Tools, API
 - [x] Add onLeave to list elements so the dropdown closes on leave.
 - [x] Add dropdown to change target format for all files.
 - [x] Tidy up the project and learn how to structure the directory.
