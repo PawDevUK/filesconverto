@@ -22,7 +22,7 @@ body {
 }
 
 /* ChatGPT-inspired input/textarea styling */
-input, textarea {
+input,
+textarea {
   font-family: "Victor Mono", monospace;
 }
-
