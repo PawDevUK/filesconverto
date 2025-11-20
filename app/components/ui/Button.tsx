@@ -1,11 +1,12 @@
 // components/ui/button.tsx
-"use client";
+'use client';
 
-import { ButtonHTMLAttributes, FC} from 'react';
-import Link from 'next/link'
+import { ButtonHTMLAttributes, FC } from 'react';
+import Link from 'next/link';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: 'default' | 'outline' | 'ghost';
+	closeJumbo?: () => void;
 };
 
 export const Button: FC<ButtonProps> = ({ children, className, variant = 'default', ...props }) => {
@@ -27,32 +28,30 @@ export const Button: FC<ButtonProps> = ({ children, className, variant = 'defaul
 type GreenButtonProps = {
 	className?: string;
 	children: React.ReactNode;
-} & (
-	| { href: string; type?: never; onClick?: never }
-	| { href?: never; type?: 'button' | 'submit' | 'reset'; onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void }
-);
+	closeJumbo?: () => void;
+} & ({ href: string; type?: never; onClick?: never } | { href?: never; type?: 'button' | 'submit' | 'reset'; onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void });
 
-export const GreenButton: FC<GreenButtonProps> = ({ 
-	children, 
-	className = '', 
-	href,
-	type 
-}) => {
+export const GreenButton: FC<GreenButtonProps> = ({ closeJumbo, children, className = '', href, type }) => {
 	const baseStyles = '[background:var(--color-primary)] text-white rounded px-4 py-2 hover:[background:var(--color-primary-hover)]';
-	
+
 	if (href) {
+		// If caller provided a closeJumboCard handler, attach it to the Link's onClick
+		// so clicking the link will also run the handler (e.g. close overlays) while
+		// preserving native link behavior (middle-click/new-tab).
 		return (
-			<Link href={href} className={`${baseStyles} ${className}`.trim()}>
+			<Link
+				href={href}
+				onClick={() => {
+					if (closeJumbo) closeJumbo();
+				}}
+				className={`${baseStyles} ${className}`.trim()}>
 				{children}
 			</Link>
 		);
 	}
-	
+
 	return (
-		<button 
-			type={type || 'button'} 
-			className={`${baseStyles} ${className}`.trim()}
-		>
+		<button type={type || 'button'} onClick={closeJumbo} className={`${baseStyles} ${className}`.trim()}>
 			{children}
 		</button>
 	);
