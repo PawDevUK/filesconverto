@@ -76,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 					<Link href='/login' className='text-gray-700 hover:text-blue-600 border border-gray-300 rounded px-4 py-2 hover:border-blue-600'>
 						Log In
 					</Link>
-					<GreenButton closeJumbo={close} href='/premiumPrices'>
+					<GreenButton href='/premiumPrices'>
 						Go Premium
 					</GreenButton>
 				</div>
@@ -97,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
 							Log In
 						</Link>
 
-						<GreenButton href='/premiumPrices' closeJumbo={close}>
+						<GreenButton href='/premiumPrices'>
 							Go Premium
 						</GreenButton>
 					</div>
