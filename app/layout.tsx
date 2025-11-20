@@ -3,6 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
+import { JumboCardProvider } from '@/app/hooks/jumboCardContext';
 
 import { store } from '@/app/store/data';
 const companyName = store.companyName || 'FilesConverto';
@@ -24,9 +25,12 @@ export default function RootLayout({
 				<Head>
 					<title>Free Files Converter</title>
 				</Head>
-				<Header companyName={companyName}></Header>
-				{children}
-				<Footer companyName={companyName}></Footer>
+				{/* Provide JumboCard state to Header, Footer and descendants */}
+				<JumboCardProvider>
+					<Header companyName={companyName}></Header>
+					{children}
+					<Footer companyName={companyName}></Footer>
+				</JumboCardProvider>
 			</body>
 		</html>
 	);
