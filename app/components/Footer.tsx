@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { GreenButton } from '@/app/components/ui/Button';
-import { useJumboCard } from '@/app/hooks/jumboCardContext';
 
 type FooterProps = {
 	companyName: string;
@@ -12,8 +11,6 @@ const Footer: React.FC<FooterProps> = ({ companyName }) => {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 	};
-
-	const { close } = useJumboCard();
 
 	return (
 		<footer className='pt-8 pb-4 mt-auto relative bg-no-repeat bg-center'>
@@ -130,9 +127,7 @@ const Footer: React.FC<FooterProps> = ({ companyName }) => {
 										type='email'
 									/>
 								</div>
-								<GreenButton type='submit' closeJumbo={close}>
-									Subscribe
-								</GreenButton>
+								<GreenButton type='submit'>Subscribe</GreenButton>
 							</form>
 						</div>
 
