@@ -1,7 +1,4 @@
-export type JumboItem = {
-	header: string;
-	convertTypes: string[];
-};
+import { JumboItem, Tools, CompressItem } from './JumboCard.types';
 
 export const ConvertData: JumboItem[] = [
 	{
@@ -37,11 +34,6 @@ export const ConvertData: JumboItem[] = [
 	},
 ];
 
-type CompressItem = {
-	header: string;
-	compressTypes: string[];
-};
-
 export const CompressData: CompressItem[] = [
 	{
 		header: 'Video & Audio',
@@ -60,11 +52,6 @@ export const CompressData: CompressItem[] = [
 		compressTypes: ['GIF Compressor'],
 	},
 ];
-
-type Tools = {
-	header: string;
-	tools: string[];
-};
 
 export const ToolsData: Tools[] = [
 	{
