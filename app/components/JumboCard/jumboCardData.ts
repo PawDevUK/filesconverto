@@ -1,4 +1,4 @@
-import { JumboItem, Tools, CompressItem } from './JumboCard.types';
+import { JumboItem, Tools, CompressItem, API } from './JumboCard.types';
 
 export const ConvertData: JumboItem[] = [
 	{
@@ -78,5 +78,43 @@ export const ToolsData: Tools[] = [
 			'PDF page remover',
 			'Extract Pages from PDF',
 		],
+	},
+];
+export const APIdata: API[] = [
+	{
+		header: 'Documentation',
+		apiTypes: ['API Job Builder', 'API Documentation'],
+	},
+	{
+		header: 'Conversion APIs',
+		apiTypes: [
+			'File Conversion API',
+			'Image Conversion API',
+			'Audio Conversion API',
+			'Document Conversion API',
+			'PDF Conversion API',
+			'MP4 Conversion API',
+			'Video Conversion API',
+		],
+	},
+	{
+		header: 'Specific APIs',
+		apiTypes: [
+			'JPG to PDF API',
+			'Video to MP3 API',
+			'HEIC to JPG API',
+			'PDF to JPG API',
+			'Webp to PNG API',
+			'PDF to WORD API',
+			'MP4 to MP3 API',
+			'Webp to JPG API',
+			'WORD to PDF API',
+			'HTML to PDF API',
+			'Website Screenshot API',
+		],
+	},
+	{
+		header: 'Compression APIs',
+		apiTypes: ['Video Compression API', 'Compress PDF API', 'Image Compression API'],
 	},
 ];
