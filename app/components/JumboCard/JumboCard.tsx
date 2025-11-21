@@ -62,7 +62,7 @@ export default function JumboCard({ data, title, routeType }: JumboCardProps) {
 				{data.map((item, index) => (
 					<div key={index} className='flex flex-col space-y-3'>
 						<h3 className='text-lg font-semibold text-gray-900 border-b-2 border-r-2 border-gray-200 pb-2'>{item.header}</h3>
-						<ul className='space-y-2 border-r-2 border-gray-200 h-[150px] overflow-y-auto'>
+						<ul className='space-y-2 border-r-2 border-gray-200'>
 							{getItems(item).map((type: string, typeIndex: number) => (
 								<li key={typeIndex}>
 									<button className='text-sm text-gray-700 hover:text-blue-600 hover:underline text-left w-full transition-colors'>{type}</button>
