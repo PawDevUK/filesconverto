@@ -8,6 +8,8 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 
 ##### Front-End
 
+- [ ] Fix card styling to match the ones on freeconverter.
+- [ ] Fix deployment problem "Module not found: Can't resolve '@/app/premiumPrices/SecuredPayments'".
 - [x] Add onLeave to list elements so the dropdown closes on leave.
 - [x] Add dropdown to change target format for all files.
 - [x] Tidy up the project and learn how to structure the directory.
@@ -39,7 +41,8 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 - [x] Fix bug where menu button disapear on mobile devices.
 - [x] Create a progress bar using Tailwind CSS.
 - [x] Remove temporally from the header none used links.
-- [x] Change main title text from 'Convert Files Effortlessly' to 'Files Converter' (It is Convert Files).
+- [x] Change main title text from 'Convert Files Effortlessly' to 'Convert Files'.
+- [x] Reduce pading for list elements and footer to 17px.
 - [ ] Create 'About' section which will explain what service provides.
 - [ ] Update Footer.
 - [ ] Create logic which recognize the free user.
