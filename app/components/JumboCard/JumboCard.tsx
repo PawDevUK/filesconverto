@@ -2,25 +2,9 @@
 
 import React, { useEffect, useRef } from 'react';
 import { useJumboCard } from '@/app/hooks/jumboCardContext';
-
-type DataItem = {
-	header: string;
-	convertTypes?: string[];
-	compressTypes?: string[];
-	tools?: string[];
-};
-
-type JumboCardProps = {
-	data: DataItem[];
-	title: string;
-	routeType: 'Convert' | 'Compress' | 'Tools' | 'API';
-};
+import { DataItem, JumboCardProps } from './JumboCard.types';
 
 export default function JumboCard({ data, title, routeType }: JumboCardProps) {
-	// close behavior: when the JumboCard is mounted, listen for clicks outside
-	// this component and close the overlay via context.close(). This keeps the
-	// close logic localized to the JumboCard (no other components need to
-	// programmatically call close()).
 	const { close } = useJumboCard();
 	const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -28,17 +12,26 @@ export default function JumboCard({ data, title, routeType }: JumboCardProps) {
 		function handlePointerDown(e: PointerEvent) {
 			const el = rootRef.current;
 			if (!el) return;
-			const target = e.target as Node | null;
-			if (target && !el.contains(target)) {
-				// Click happened outside the JumboCard — close it
-				close();
-			}
+			const target = e.target as HTMLElement | null;
+			if (!target) return;
+
+			// Check if click is inside the JumboCard
+			if (el.contains(target)) return;
+
+			// Check if click is on a navigation button/link (menu items)
+			const isNavButton = target.closest('nav button') || target.closest('nav a');
+			if (isNavButton) return;
+
+			// Click is outside JumboCard and not on nav - close it
+			close();
 		}
 
 		document.addEventListener('pointerdown', handlePointerDown);
 		return () => document.removeEventListener('pointerdown', handlePointerDown);
 	}, [close]);
+
 	// Determine which property to access based on route type
+
 	const getItems = (item: DataItem): string[] => {
 		if (routeType === 'Convert') return item.convertTypes || [];
 		if (routeType === 'Compress') return item.compressTypes || [];
