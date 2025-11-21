@@ -7,23 +7,23 @@ const PricingCard = (props: price_Plans) => {
 	return (
 		<div className='max-w-sm w-full rounded-xl border border-gray-200 bg-white p-6 shadow-md'>
 			<div className='mb-4'>
-				<h3 className='text-xl font-semibold text-gray-700'>{props.plan}</h3>
+				<h3 className='heading-4'>{props.plan}</h3>
 			</div>
 
 			<div className='mb-6 flex items-baseline space-x-2 text-gray-900'>
-				<span className='text-3xl font-semibold'>£</span>
-				<span className='text-5xl font-extrabold'>{props.price}</span>
-				<span className='text-xl font-normal text-gray-500'>/month</span>
+				<span className='heading-2'>£</span>
+				<span className='display-large'>{props.price}</span>
+				<span className='heading-4 text-gray-500'>/month</span>
 			</div>
 
-			<ul className='mb-6 space-y-4 text-gray-500'>
+			<ul className='mb-6 space-y-4 body-base'>
 				{props.perks.map((perk, key) => (
 					<li className='flex items-center mb-2' key={key}>
 						<CheckIcon active />
 						<span className='ml-3 leading-loose'>
-							{perk === "Unlimited concurrent conversions" ? (
+							{perk === 'Unlimited concurrent conversions' ? (
 								<>
-									<Image src={Infinity_Icon} alt="infinity" className="inline w-6 h-8 mr-1" />
+									<Image src={Infinity_Icon} alt='infinity' className='inline w-6 h-8 mr-1' />
 									concurrent conversions.
 								</>
 							) : (
@@ -36,7 +36,7 @@ const PricingCard = (props: price_Plans) => {
 
 			<button
 				type='button'
-				className='w-full rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rbg-blue-600'>
+				className='w-full rounded-lg bg-blue-700 px-5 py-2.5 button-text text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rbg-blue-600'>
 				Choose plan
 			</button>
 		</div>

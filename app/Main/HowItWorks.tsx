@@ -10,29 +10,29 @@ export default function HowItWorks() {
 					<div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4'>
 						<span className='text-blue-600 font-bold'>1</span>
 					</div>
-					<h4 className='font-semibold mb-2'>Upload PDF</h4>
-					<p className='text-gray-600 text-sm'>Drag & drop or click to select your file.</p>
+					<h4 className='label-semibold mb-2'>Upload PDF</h4>
+					<p className='body-small'>Drag & drop or click to select your file.</p>
 				</div>
 				<div className='flex flex-col items-center'>
 					<div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4'>
 						<span className='text-blue-600 font-bold'>2</span>
 					</div>
-					<h4 className='font-semibold mb-2'>Choose Format</h4>
-					<p className='text-gray-600 text-sm'>Select your desired output format.</p>
+					<h4 className='label-semibold mb-2'>Choose Format</h4>
+					<p className='body-small'>Select your desired output format.</p>
 				</div>
 				<div className='flex flex-col items-center'>
 					<div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4'>
 						<span className='text-blue-600 font-bold'>3</span>
 					</div>
-					<h4 className='font-semibold mb-2'>Convert</h4>
-					<p className='text-gray-600 text-sm'>Our system processes your file.</p>
+					<h4 className='label-semibold mb-2'>Convert</h4>
+					<p className='body-small'>Our system processes your file.</p>
 				</div>
 				<div className='flex flex-col items-center'>
 					<div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4'>
 						<span className='text-blue-600 font-bold'>4</span>
 					</div>
-					<h4 className='font-semibold mb-2'>Download</h4>
-					<p className='text-gray-600 text-sm'>Download your converted file.</p>
+					<h4 className='label-semibold mb-2'>Download</h4>
+					<p className='body-small'>Download your converted file.</p>
 				</div>
 			</div>
 		</>

@@ -1,12 +1,8 @@
 /* Typography System - Standardized font sizes and weights */
 
 /* Headings */
-.heading-1 {
-    @apply text-6xl font-bold text-gray-900;
-}
-
 .heading-2 {
-    @apply text-3xl font-bold text-gray-900;
+    @apply text-3xl font-bold text-gray-600;
 }
 
 .heading-3 {
@@ -14,11 +10,11 @@
 }
 
 .heading-4 {
-    @apply text-xl font-semibold text-gray-900;
+    @apply text-xl font-semibold text-gray-600;
 }
 
 .heading-5 {
-    @apply text-lg font-semibold text-gray-900;
+    @apply text-lg font-semibold text-gray-600;
 }
 
 /* Body Text */

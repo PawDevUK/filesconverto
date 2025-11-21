@@ -54,8 +54,8 @@ export default function Dropzone({ onUpload }: { onUpload?: () => void }) {
 			<div className='flex flex-col items-center justify-center text-blue-600'>
 				<Upload className={`h-8 w-8 mb-3`} />
 				<div className='text-center'>
-					<p className='text-lg font-medium mb-2'>Drag & drop a file here, or click to select</p>
-					<p className='text-xs text-gray-400 mt-1'>Supports files up to 50MB</p>
+					<p className='body-large font-medium mb-2'>Drag & drop a file here, or click to select</p>
+					<p className='caption mt-1'>Supports files up to 50MB</p>
 				</div>
 			</div>
 		</div>
