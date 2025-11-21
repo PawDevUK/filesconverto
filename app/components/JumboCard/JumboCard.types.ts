@@ -3,6 +3,7 @@ export type DataItem = {
 	convertTypes?: string[];
 	compressTypes?: string[];
 	tools?: string[];
+	apiTypes?: string[];
 };
 
 export type JumboCardProps = {
@@ -23,4 +24,9 @@ export type Tools = {
 export type CompressItem = {
 	header: string;
 	compressTypes: string[];
+};
+
+export type API = {
+	header: string;
+	apiTypes: string[];
 };
