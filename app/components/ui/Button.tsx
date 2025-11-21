@@ -1,8 +1,8 @@
 // components/ui/button.tsx
-"use client";
+'use client';
 
-import { ButtonHTMLAttributes, FC} from 'react';
-import Link from 'next/link'
+import { ButtonHTMLAttributes, FC } from 'react';
+import Link from 'next/link';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant?: 'default' | 'outline' | 'ghost';
@@ -27,19 +27,11 @@ export const Button: FC<ButtonProps> = ({ children, className, variant = 'defaul
 type GreenButtonProps = {
 	className?: string;
 	children: React.ReactNode;
-} & (
-	| { href: string; type?: never; onClick?: never }
-	| { href?: never; type?: 'button' | 'submit' | 'reset'; onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void }
-);
+} & ({ href: string; type?: never; onClick?: never } | { href?: never; type?: 'button' | 'submit' | 'reset'; onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void });
 
-export const GreenButton: FC<GreenButtonProps> = ({ 
-	children, 
-	className = '', 
-	href,
-	type 
-}) => {
+export const GreenButton: FC<GreenButtonProps> = ({ children, className = '', href, type }) => {
 	const baseStyles = '[background:var(--color-primary)] text-white rounded px-4 py-2 hover:[background:var(--color-primary-hover)]';
-	
+
 	if (href) {
 		return (
 			<Link href={href} className={`${baseStyles} ${className}`.trim()}>
@@ -47,12 +39,9 @@ export const GreenButton: FC<GreenButtonProps> = ({
 			</Link>
 		);
 	}
-	
+
 	return (
-		<button 
-			type={type || 'button'} 
-			className={`${baseStyles} ${className}`.trim()}
-		>
+		<button type={type || 'button'} className={`${baseStyles} ${className}`.trim()}>
 			{children}
 		</button>
 	);
