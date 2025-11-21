@@ -10,7 +10,7 @@ import { GreenButton } from '@/app/components/ui/Button';
 import JumboCard from '@/app/components/JumboCard/JumboCard';
 
 import { store } from '../store/data';
-import { ConvertData, CompressData, ToolsData } from './JumboCard/jumboCardData';
+import { ConvertData, CompressData, ToolsData, APIdata } from './JumboCard/jumboCardData';
 
 type HeaderProps = {
 	companyName?: string;
@@ -115,7 +115,17 @@ const Header: React.FC<HeaderProps> = ({}) => {
 							</svg>
 						</button>
 						<JumboCard
-							data={activeRoute === 'Convert' ? ConvertData : activeRoute === 'Compress' ? CompressData : activeRoute === 'Tools' ? ToolsData : []}
+							data={
+								activeRoute === 'Convert'
+									? ConvertData
+									: activeRoute === 'Compress'
+									? CompressData
+									: activeRoute === 'Tools'
+									? ToolsData
+									: activeRoute === 'API'
+									? APIdata
+									: []
+							}
 							title={
 								activeRoute === 'Convert'
 									? 'All Conversion Types'
