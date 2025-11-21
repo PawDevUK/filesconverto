@@ -36,17 +36,9 @@ export default function JumboCard({ data, title, routeType }: JumboCardProps) {
 		if (routeType === 'Convert') return item.convertTypes || [];
 		if (routeType === 'Compress') return item.compressTypes || [];
 		if (routeType === 'Tools') return item.tools || [];
+		if (routeType === 'API') return item.apiTypes || [];
 		return [];
 	};
-
-	if (routeType === 'API') {
-		return (
-			<div ref={rootRef} className='px-4 sm:px-6 lg:px-8 py-8'>
-				<h2 className='heading-3 mb-6'>{title}</h2>
-				<p className='body-base'>API documentation coming soon...</p>
-			</div>
-		);
-	}
 
 	return (
 		<div ref={rootRef} className='px-4 sm:px-6 lg:px-8 py-8'>
