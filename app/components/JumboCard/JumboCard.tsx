@@ -49,23 +49,23 @@ export default function JumboCard({ data, title, routeType }: JumboCardProps) {
 	if (routeType === 'API') {
 		return (
 			<div ref={rootRef} className='px-4 sm:px-6 lg:px-8 py-8'>
-				<h2 className='text-2xl font-bold text-gray-900 mb-6'>{title}</h2>
-				<p className='text-gray-700'>API documentation coming soon...</p>
+				<h2 className='heading-3 mb-6'>{title}</h2>
+				<p className='body-base'>API documentation coming soon...</p>
 			</div>
 		);
 	}
 
 	return (
 		<div ref={rootRef} className='px-4 sm:px-6 lg:px-8 py-8'>
-			<h2 className='text-2xl font-bold text-gray-900 mb-6'>{title}</h2>
-			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0'>
+			<h2 className='heading-3 mb-6'>{title}</h2>
+			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 h-[400px]'>
 				{data.map((item, index) => (
 					<div key={index} className='flex flex-col space-y-3'>
-						<h3 className='text-lg font-semibold text-gray-900 border-b-2 border-r-2 border-gray-200 pb-2'>{item.header}</h3>
+						<h3 className='heading-5 border-b-2 border-r-2 border-gray-200 pb-2'>{item.header}</h3>
 						<ul className='space-y-2 border-r-2 border-gray-200'>
 							{getItems(item).map((type: string, typeIndex: number) => (
 								<li key={typeIndex}>
-									<button className='text-sm text-gray-700 hover:text-blue-600 hover:underline text-left w-full transition-colors'>{type}</button>
+									<button className='body-small hover:text-blue-600 hover:underline text-left w-full transition-colors'>{type}</button>
 								</li>
 							))}
 						</ul>

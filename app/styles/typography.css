@@ -1,0 +1,66 @@
+/* Typography System - Standardized font sizes and weights */
+
+/* Headings */
+.heading-1 {
+    @apply text-6xl font-bold text-gray-900;
+}
+
+.heading-2 {
+    @apply text-3xl font-bold text-gray-900;
+}
+
+.heading-3 {
+    @apply text-2xl font-bold text-gray-600;
+}
+
+.heading-4 {
+    @apply text-xl font-semibold text-gray-900;
+}
+
+.heading-5 {
+    @apply text-lg font-semibold text-gray-900;
+}
+
+/* Body Text */
+.body-large {
+    @apply text-lg text-gray-600;
+}
+
+.body-base {
+    @apply text-base text-gray-600;
+}
+
+.body-small {
+    @apply text-sm text-gray-700;
+}
+
+.body-xs {
+    @apply text-xs text-gray-500;
+}
+
+/* Labels & UI Text */
+.label-medium {
+    @apply text-sm font-medium text-gray-700;
+}
+
+.label-semibold {
+    @apply text-sm font-semibold text-gray-900;
+}
+
+/* Button Text */
+.button-text {
+    @apply text-sm font-medium;
+}
+
+/* Special Purpose */
+.display-large {
+    @apply text-5xl font-extrabold text-gray-900;
+}
+
+.caption {
+    @apply text-xs text-gray-400;
+}
+
+.link-text {
+    @apply text-sm text-blue-600 hover:text-blue-800;
+}
