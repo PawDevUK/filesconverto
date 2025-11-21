@@ -60,12 +60,12 @@ export default function JumboCard({ data, title, routeType }: JumboCardProps) {
 			<h2 className='heading-3 mb-6'>{title}</h2>
 			<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 h-[400px]'>
 				{data.map((item, index) => (
-					<div key={index} className='flex flex-col space-y-3'>
-						<h3 className='heading-5 border-b-2 border-r-2 border-gray-200 pb-2'>{item.header}</h3>
-						<ul className='space-y-2 border-r-2 border-gray-200'>
+					<div key={index} className='flex flex-col space-y-3 border-r-2 border-gray-200'>
+						<h3 className='pl-2 heading-5 border-b-2 border-gray-200 pb-2'>{item.header}</h3>
+						<ul className='space-y-2'>
 							{getItems(item).map((type: string, typeIndex: number) => (
 								<li key={typeIndex}>
-									<button className='body-small hover:text-blue-600 hover:underline text-left w-full transition-colors'>{type}</button>
+									<button className='pl-2 body-small hover:text-blue-600 hover:underline text-left w-full transition-colors'>{type}</button>
 								</li>
 							))}
 						</ul>
