@@ -9,7 +9,9 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 ##### Front-End
 
 - [ ] Fix card styling to match the ones on freeconverter.
-- [ ] Fix deployment problem "Module not found: Can't resolve '@/app/premiumPrices/SecuredPayments'".
+- [ ] Fix card closing on selecting nav link.
+- [ ] Fix login and premium prices paths as it gets 404.
+- [x] Fix deployment problem "Module not found: Can't resolve '@/app/premiumPrices/SecuredPayments'".
 - [x] Add onLeave to list elements so the dropdown closes on leave.
 - [x] Add dropdown to change target format for all files.
 - [x] Tidy up the project and learn how to structure the directory.
