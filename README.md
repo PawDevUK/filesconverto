@@ -8,6 +8,7 @@ This repository contains the complete codebase for FilesConverto.com. As the pro
 
 ##### Front-End
 
+- [ ] Reduce font weight of the "Supported convertion" cards titles as it is bold at the moment.
 - [ ] Fix the mobile menu. Groupe links in drop down sub menu of the main menu like it is in the freeconvert.
 - [ ] Add the logic to submenu when selected the item it need open the dropzone page and fill the text with selected format and set the format in the dropzone to selected.
 - [x] Fix card styling to match the ones on freeconverter.
