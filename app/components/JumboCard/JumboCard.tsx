@@ -25,9 +25,19 @@ export default function JumboCard({ data, title, routeType }: JumboCardProps) {
 			// Click is outside JumboCard and not on nav - close it
 			close();
 		}
+		const handleEscape = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') {
+				close();
+			}
+			return;
+		};
 
+		document.addEventListener('keydown', handleEscape);
 		document.addEventListener('pointerdown', handlePointerDown);
-		return () => document.removeEventListener('pointerdown', handlePointerDown);
+		return () => {
+			document.removeEventListener('pointerdown', handlePointerDown);
+			document.removeEventListener('keydown', handleEscape);
+		};
 	}, [close]);
 
 	// Determine which property to access based on route type
