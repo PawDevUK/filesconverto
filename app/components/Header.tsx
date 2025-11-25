@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 import { GreenButton } from '@/app/components/ui/Button';
 import JumboCard from '@/app/components/JumboCard/JumboCard';
+import MobileMenu from '@/app/components/MobileMenu';
 
 import { store } from '../store/data';
 import { ConvertData, CompressData, ToolsData, APIdata } from './JumboCard/jumboCardData';
@@ -79,26 +80,15 @@ const Header: React.FC<HeaderProps> = ({}) => {
 					<GreenButton href='/premiumPrices'>Go Premium</GreenButton>
 				</div>
 				<div className='md:hidden'>
-					<button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label='button' className='text-gray-700 focus:outline-none'>
+					<button onClick={() => setIsMenuOpen(true)} aria-label='Open navigation menu' className='text-gray-700 focus:outline-none'>
 						<svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-							<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
+							<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M4 6h16M4 12h16M4 18h16' />
 						</svg>
 					</button>
 				</div>
 			</div>
-			{isMenuOpen && (
-				<div className='md:hidden bg-white border-t border-gray-200'>
-					<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col space-y-4'>
-						<Menu closeMenu={() => setIsMenuOpen(false)} />
-
-						<Link href='/login' className='text-gray-700 hover:text-blue-600'>
-							Log In
-						</Link>
-
-						<GreenButton href='/premiumPrices'>Go Premium</GreenButton>
-					</div>
-				</div>
-			)}{' '}
+			{/* Mobile Menu */}
+			<MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 			{/* JumboCard Overlay */}
 			{isJumboCardOpen && (
 				<div className='fixed top-16 left-0 right-0 z-50 max-h-[calc(100vh-4rem)] overflow-y-auto bg-white shadow-2xl border-t border-gray-200'>
