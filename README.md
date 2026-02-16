@@ -1,63 +1,116 @@
+
 # FilesConverto.com
 
-## About
+## Overview
 
-This repository contains the complete codebase for FilesConverto.com. As the project is still in its early development stages, the repository remains relatively small. The goal is for it to evolve into a comprehensive platform with all the essential features needed to support the conversion of the most commonly used file types.
+**FilesConverto.com** is a Next.js + TypeScript web application for converting, compressing, and managing files in various formats. The platform features a drag-and-drop uploader, conversion status UI, responsive design with Tailwind CSS, and a modular, scalable architecture. The project is in active development and aims to support the most commonly used file types for conversion and compression.
 
-#### To Do
+---
 
-##### Front-End
+## Features
 
-- [ ] Reduce font weight of the "Supported convertion" cards titles as it is bold at the moment.
-- [ ] Fix the mobile menu. Groupe links in drop down sub menu of the main menu like it is in the freeconvert.
-- [ ] Add the logic to submenu when selected the item it need open the dropzone page and fill the text with selected format and set the format in the dropzone to selected.
-- [x] Fix card styling to match the ones on freeconverter.
-- [ ] Fix card closing on selecting nav link.
-- [ ] Fix login and premium prices paths as it gets 404.
-- [x] Fix deployment problem "Module not found: Can't resolve '@/app/premiumPrices/SecuredPayments'".
-- [x] Add onLeave to list elements so the dropdown closes on leave.
-- [x] Add dropdown to change target format for all files.
-- [x] Tidy up the project and learn how to structure the directory.
-- [x] Fixed RWD for Header.
-- [x] Create 'How it works' section with 'Step 1,2,3'
-- [x] Create 'File Types' section with cards which each of them will represent file type.
-- [x] Move status info on the right side of the format buton.
-- [x] Move the size on the right side of the file name.
-- [x] Change the "Choose format" button. (Removed mouse hover and the blue button).
-- [x] Remove/diasable "Choose format" button on 'converting...' uploadlist item.
-- [x] Remove/diasable "Choose format" button on 'Failed' uploadlist item.
-- [x] Remove/diasable "Choose format" button on 'Completed' uploadlist item.
-- [x] Center the text in "Choose format".
-- [x] Tidy up uploads list items. It need to have right buttons and info for every stage of cicle eg. uploaded to front-end, converted and ready to downoload, downloaded..
-- [x] Add multi files upload.
-- [x] Remove "Processing..."
-- [x] Create mockup logic to convert files.
-- [x] Add button to convert all uploaded.
-- [x] Disable "convert" button for uploads list items which haven't got choosen target format.
-- [x] Add css to push the "trash" and "download" button to the right.
-- [x] Add responcive text size for the file size text.
-- [x] Remove text in buttons in list items on small devices and leave only icons.
-- [x] Adjust buttons size in the uploads list footer as curently they are to big and not possitioned correctly.
-- [x] Fix bug where "convert all" button is anabled even if the format of files is not selected.
-- [x] Reduce buttons of the upload list items for mobile devices.
-- [x] Add random failed on convertion.
-- [x] Fix RWD as it is very bad on mobile devices.
-- [x] Fix the non-closing mobile menu onClick "Go Premium"
-- [x] Fix bug where menu button disapear on mobile devices.
-- [x] Create a progress bar using Tailwind CSS.
-- [x] Remove temporally from the header none used links.
-- [x] Change main title text from 'Convert Files Effortlessly' to 'Convert Files'.
-- [x] Reduce pading for list elements and footer to 17px.
-- [ ] Create 'About' section which will explain what service provides.
-- [ ] Update Footer.
-- [ ] Create logic which recognize the free user.
+- Drag-and-drop file upload (with react-dropzone)
+- Multi-file upload and batch conversion
+- Conversion between popular formats: PDF, DOCX, JPG, PNG, MP4, MP3, GIF, AVI, and more
+- Compression tools for images, video, audio, and PDF
+- Real-time conversion status and progress bar
+- Responsive, accessible UI (Tailwind CSS)
+- Modular React components and custom hooks
+- Mock data and conversion logic for development/testing
+- Pricing plans and premium features (in progress)
+- API documentation (coming soon)
+- Unit and accessibility tests (Jest, Testing Library, jest-axe)
 
-##### Back-End
+---
 
-- [ ] Learn about creating live progress bar for convertion and add this functionality.
-- [x] Choose reliable NPM packages for converting PDF documents.
-  I HAVE DECIDED TO USE PYTHON PACKAGES AS NPM PACKAGES ARE EMPTY OR UNRELIABLE !!!!
-- [ ] Learn how react hook is define and how to use it in Next js Component. How to handle props.
+## Technologies & Tools
+
+- **Framework:** Next.js (App Router), React, TypeScript
+- **Styling:** Tailwind CSS, PostCSS, autoprefixer
+- **State/Logic:** React hooks, Context API, custom hooks (e.g., useFileUpload)
+- **Testing:** Jest, @testing-library/react, jest-axe
+- **Utilities:** Axios, idb-keyval (IndexedDB), jszip, docx, pdf-lib, xml2js
+- **Icons:** lucide-react
+- **Linting:** ESLint
+- **Version Control:** Git
+
+---
+
+## Folder Structure
+
+- `app/` — Main application code (pages, components, hooks, store, utils, styles)
+  - `components/` — UI and layout components (Header, Footer, MobileMenu, JumboCard, Button, DropDown, Card, etc.)
+  - `Main/` — Main page sections (Hero, About, Dropzone, FileFormats, HowItWorks, ServiceInfoCards, UploadsList)
+  - `hooks/` — Custom React hooks (e.g., useFileUpload, jumboCardContext)
+  - `store/` — Data stores and mock data (data.ts, mockUploads.ts)
+  - `utils/` — Utility functions (IndexedDB.ts)
+  - `pages/` — Static assets and CSS
+  - `premiumPrices/` — Pricing and premium plan pages/components
+  - `api/` — API documentation placeholder
+  - `fonts/`, `typography/`, `styles/` — Fonts, typography, and global styles
+- `public/` — Static files and uploads
+- `test/` — Unit and accessibility tests
+- `samples/` — Sample files for testing
+
+---
+
+## Usage & Setup
+
+1. **Install dependencies:**
+
+  ```bash
+  npm install
+  ```
+
+1. **Run the development server:**
+
+  ```bash
+  npm run dev
+  ```
+
+1. **Build for production:**
+
+  ```bash
+  npm run build
+  npm start
+  ```
+
+1. **Run tests:**
+
+  ```bash
+  npm test
+  ```
+
+---
+
+## API
+
+API documentation is coming soon. The backend will handle file conversion and return file URLs or binary data.
+
+---
+
+## Pricing Plans
+
+See the `premiumPrices/` section for available plans and features. Plans include Standard, Premium, Pro, and Office, each with different conversion limits, file size, and concurrency.
+
+---
+
+## To Do / Roadmap
+
+- Complete About section and Footer
+- Implement user authentication and premium logic
+- Add live progress bar for conversions
+- Expand API and backend integration
+- Improve mobile menu and navigation
+- Add more file formats and tools
+- Polish UI/UX and accessibility
+
+---
+
+## License
+
+This project is for educational and portfolio purposes. See LICENSE for details if provided.
+
 - [ ] Add API directory for pdf.
 - [ ] Create the initial logic for uploading and sending files to Python cloud function.
   - Set up a directory for file uploads in `public/uploads` to store uploaded and converted files.
